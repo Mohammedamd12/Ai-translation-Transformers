@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-language" content="ar">
 <title>الذكاء الاصطناعي في الترجمة الفورية الطبية | محمد أحمد المفرجي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,10 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    direction: rtl;
+  }
 
   body {
     font-family: 'Tajawal', sans-serif;
@@ -31,11 +35,35 @@
     font-size: 17px;
     line-height: 1.85;
     direction: rtl;
+    text-align: right;
     overflow-x: hidden;
   }
 
-  .num, .yr { font-family: 'Playfair Display', serif; }
-  .en { font-family: 'Playfair Display', serif; font-style: italic; }
+  .num, .yr {
+    font-family: 'Playfair Display', serif;
+    direction: ltr;
+    unicode-bidi: isolate;
+    display: inline-block;
+  }
+
+  .en {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    direction: ltr;
+    unicode-bidi: isolate;
+    display: inline-block;
+  }
+
+  [lang="en"] {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
+  .en-block {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: left;
+  }
 
   body::before {
     content: '';
@@ -365,7 +393,7 @@
 
   .pull-quote {
     background: var(--paper-warm);
-    border-right: 4px solid var(--rust);
+    border-inline-start: 4px solid var(--rust);
     padding: 32px 36px;
     margin: 24px 0;
     font-family: 'Amiri', serif;
@@ -380,7 +408,7 @@
     content: '"';
     position: absolute;
     top: -10px;
-    right: 24px;
+    inset-inline-start: 24px;
     font-family: 'Playfair Display', serif;
     font-size: 80px;
     color: var(--copper);
@@ -428,9 +456,15 @@
   .compare-table th,
   .compare-table td {
     padding: 18px 24px;
-    text-align: right;
+    text-align: start;
     border-bottom: 1px solid var(--line);
     vertical-align: top;
+  }
+
+  .compare-table th[lang="en"],
+  .compare-table td[lang="en"] {
+    direction: ltr;
+    text-align: left;
   }
 
   .compare-table th {
@@ -599,7 +633,7 @@
     transition: padding 0.3s;
   }
 
-  .company-row:hover { padding-right: 16px; }
+  .company-row:hover { padding-inline-start: 16px; }
   .company-row:last-child { border-bottom: none; }
 
   .company-rank {
@@ -636,9 +670,9 @@
   .company-desc strong { color: var(--rust); font-weight: 700; }
 
   .company-stat {
-    text-align: left;
-    padding-right: 24px;
-    border-right: 2px solid var(--rust);
+    text-align: end;
+    padding-inline-start: 24px;
+    border-inline-start: 2px solid var(--rust);
   }
 
   .company-stat-num {
@@ -937,7 +971,7 @@
     .models-grid { grid-template-columns: 1fr; }
     .company-row { grid-template-columns: 60px 1fr; gap: 16px; }
     .company-desc, .company-stat { grid-column: 1 / -1; }
-    .company-stat { border-right: none; padding-right: 0; text-align: right; }
+    .company-stat { border-inline-start: none; padding-inline-start: 0; text-align: start; }
     .timeline::before { right: 32px; }
     .tl-item { grid-template-columns: 64px 1fr; }
     .tl-year { grid-column: 1; width: 64px; height: 64px; font-size: 22px; }
@@ -960,21 +994,21 @@
   }
 </style>
 </head>
-<body>
+<body lang="ar" dir="rtl">
 
-<h1 class="sr-only">الذكاء الاصطناعي في الترجمة الفورية الطبية — بحث في مقرر Advanced Deep Learning</h1>
+<h1 class="sr-only">الذكاء الاصطناعي في الترجمة الفورية الطبية — بحث في مقرر التعلم العميق المتقدم</h1>
 
 <!-- HERO -->
 <header class="hero">
   <div class="hero-top container" style="padding: 0;">
-    <span>Advanced Deep Learning · S444001309</span>
-    <span class="badge">Research</span>
+    <span lang="en" dir="ltr" class="en-block">Advanced Deep Learning · S444001309</span>
+    <span class="badge" lang="en" dir="ltr">Research</span>
   </div>
 
   <div class="hero-center">
-    <div class="hero-eyebrow">A research study in</div>
+    <div class="hero-eyebrow" lang="en" dir="ltr">A research study in</div>
     <h1>الذكاء الاصطناعي<br>في <span class="accent">الترجمة الفورية الطبية</span></h1>
-    <p class="hero-subtitle">كيف تُحدث تقنيات <span class="en">ASR</span> و<span class="en">LLMs</span> و<span class="en">TTS</span> تحولاً جذرياً في التواصل بين المرضى والأطباء — من التعرف على الكلام إلى الترجمة السياقية وإعادة إنتاج الصوت الطبيعي</p>
+    <p class="hero-subtitle">كيف تُحدث تقنيات <span class="en" lang="en" dir="ltr">ASR</span> و<span class="en" lang="en" dir="ltr">LLMs</span> و<span class="en" lang="en" dir="ltr">TTS</span> تحولاً جذرياً في التواصل بين المرضى والأطباء — من التعرف على الكلام إلى الترجمة السياقية وإعادة إنتاج الصوت الطبيعي</p>
     <p class="hero-supervisor">محمد أحمد المفرجي · تحت إشراف د. أحمد الهندي</p>
     <p class="hero-meta">التاريخ: <span class="num">29</span>/<span class="num">05</span>/<span class="num">2026</span></p>
   </div>
@@ -986,15 +1020,15 @@
     </div>
     <div class="stat">
       <div class="stat-num"><span class="num">99</span><span class="unit">لغة</span></div>
-      <div class="stat-label">دعم لغوي في نموذج <span class="en">Whisper</span></div>
+      <div class="stat-label">دعم لغوي في نموذج <span class="en" lang="en" dir="ltr">Whisper</span></div>
     </div>
     <div class="stat">
       <div class="stat-num"><span class="num">90</span><span class="unit">٪</span></div>
-      <div class="stat-label">تقليل تكلفة الترجمة مع <span class="en">Wordly AI</span></div>
+      <div class="stat-label">تقليل تكلفة الترجمة مع <span class="en" lang="en" dir="ltr">Wordly AI</span></div>
     </div>
     <div class="stat">
       <div class="stat-num"><span class="num">500K</span><span class="unit">طبيب</span></div>
-      <div class="stat-label">يستخدمون <span class="en">Dragon Medical</span> عالمياً</div>
+      <div class="stat-label">يستخدمون <span class="en" lang="en" dir="ltr">Dragon Medical</span> عالمياً</div>
     </div>
   </div>
 </header>
@@ -1002,7 +1036,7 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <span class="nav-logo">AI × Medical Translation</span>
+    <span class="nav-logo" lang="en" dir="ltr">AI × Medical Translation</span>
     <ul class="nav-links">
       <li><a href="#intro">المقدمة</a></li>
       <li><a href="#ai-types">التقليدي vs التوليدي</a></li>
@@ -1025,11 +1059,11 @@
     <div class="intro-grid">
       <div>
         <h3 class="sub-heading">الملخص التنفيذي</h3>
-        <p class="body-text">يستعرض هذا البحث كيف أحدث الذكاء الاصطناعي تحولاً جذرياً في هذه الصناعة عبر ثلاث تطبيقات رئيسية: التعرف التلقائي على الكلام باستخدام <span class="en">Whisper</span>، الترجمة العصبية الفورية عبر نماذج اللغة الكبيرة مثل <span class="en">GPT</span> و<span class="en">DeepSeek</span>، والتحويل النصي إلى كلام طبيعي باستخدام <span class="en">ElevenLabs</span>.</p>
+        <p class="body-text">يستعرض هذا البحث كيف أحدث الذكاء الاصطناعي تحولاً جذرياً في هذه الصناعة عبر ثلاث تطبيقات رئيسية: التعرف التلقائي على الكلام باستخدام <span class="en" lang="en" dir="ltr">Whisper</span>، الترجمة العصبية الفورية عبر نماذج اللغة الكبيرة مثل <span class="en" lang="en" dir="ltr">GPT</span> و<span class="en" lang="en" dir="ltr">DeepSeek</span>، والتحويل النصي إلى كلام طبيعي باستخدام <span class="en" lang="en" dir="ltr">ElevenLabs</span>.</p>
         <p class="body-text">توصل البحث إلى أن دمج هذه التقنيات في نظام واحد قادر على توفير تجربة ترجمة طبية لحظية عالية الجودة وبتكلفة أقل من الحلول التقليدية. كما ناقش التحديات التقنية والأخلاقية المرتبطة بالدقة والمسؤولية القانونية وحماية خصوصية المرضى.</p>
 
         <h3 class="sub-heading">نبذة عن الصناعة</h3>
-        <p class="body-text">الترجمة الفورية الطبية (<span class="en">Medical Interpretation</span>) هي خدمة متخصصة تهدف إلى تسهيل التواصل بين المرضى ومقدمي الرعاية الصحية من خلال ترجمة المحادثات الطبية بشكل فوري ودقيق. من أبرز الشركات: <span class="en">Language Line Solutions</span> و<span class="en">Lionbridge</span> و<span class="en">TransPerfect</span>.</p>
+        <p class="body-text">الترجمة الفورية الطبية (<span class="en" lang="en" dir="ltr">Medical Interpretation</span>) هي خدمة متخصصة تهدف إلى تسهيل التواصل بين المرضى ومقدمي الرعاية الصحية من خلال ترجمة المحادثات الطبية بشكل فوري ودقيق. من أبرز الشركات: <span class="en" lang="en" dir="ltr">Language Line Solutions</span> و<span class="en" lang="en" dir="ltr">Lionbridge</span> و<span class="en" lang="en" dir="ltr">TransPerfect</span>.</p>
         <p class="body-text">أبرز التحديات التقليدية: نقص المترجمين المتخصصين، ارتفاع التكلفة، تأخر الاستجابة، وضعف الدقة المصطلحية في الحالات الطبية الحساسة.</p>
       </div>
 
@@ -1042,23 +1076,23 @@
         <h3 class="sub-heading">لماذا الذكاء الاصطناعي مهم؟</h3>
         <p class="body-text">تكمن أهميته في وفرة البيانات الصوتية والنصية الطبية، والحاجة لقرارات وترجمات فورية خصوصاً في أقسام الطوارئ. عملية الترجمة الطبية تتكون من خطوات واضحة: تحويل الكلام إلى نص، ثم ترجمته، ثم إعادة إنتاجه صوتياً — مما يجعلها مناسبة جداً للأتمتة باستخدام نماذج التعلم العميق.</p>
 
-        <p class="body-text">اعتمد البحث على أوراق علمية من <span class="en">arXiv</span> و<span class="en">PubMed</span>، وتقارير صناعية من <span class="en">Grand View Research</span> و<span class="en">Slator</span>، مع التحقق من المصادر باستخدام <span class="en">ChatGPT</span> و<span class="en">Claude</span> و<span class="en">Perplexity</span>.</p>
+        <p class="body-text">اعتمد البحث على أوراق علمية من <span class="en" lang="en" dir="ltr">arXiv</span> و<span class="en" lang="en" dir="ltr">PubMed</span>، وتقارير صناعية من <span class="en" lang="en" dir="ltr">Grand View Research</span> و<span class="en" lang="en" dir="ltr">Slator</span>، مع التحقق من المصادر باستخدام <span class="en" lang="en" dir="ltr">ChatGPT</span> و<span class="en" lang="en" dir="ltr">Claude</span> و<span class="en" lang="en" dir="ltr">Perplexity</span>.</p>
       </div>
     </div>
 
     <div class="pipeline">
       <div class="pipeline-step">
-        <div class="step-label en">ASR</div>
+        <div class="step-label en" lang="en" dir="ltr">ASR</div>
         <div class="step-desc">Whisper — كلام → نص</div>
       </div>
       <span class="pipeline-arrow">←</span>
       <div class="pipeline-step">
-        <div class="step-label en">LLM</div>
+        <div class="step-label en" lang="en" dir="ltr">LLM</div>
         <div class="step-desc">DeepSeek / GPT — ترجمة سياقية</div>
       </div>
       <span class="pipeline-arrow">←</span>
       <div class="pipeline-step">
-        <div class="step-label en">TTS</div>
+        <div class="step-label en" lang="en" dir="ltr">TTS</div>
         <div class="step-desc">ElevenLabs — نص → صوت طبيعي</div>
       </div>
     </div>
@@ -1070,34 +1104,34 @@
   <div class="container">
     <div class="section-eyebrow"><span class="ch num">2</span><span>التقليدي مقابل التوليدي</span></div>
     <h2 class="section-title">نوعان من الذكاء<br>في سلسلة واحدة</h2>
-    <p class="section-intro">الذكاء الاصطناعي التقليدي (<span class="en">Predictive AI</span>) يُصنّف ويتنبأ بناءً على بيانات موجودة، بينما الذكاء الاصطناعي التوليدي (<span class="en">Generative AI</span>) يُنشئ محتوى لم يكن موجوداً من قبل. في الترجمة الفورية الطبية، يؤدي كلا النوعين دوراً حيوياً ومتكاملاً.</p>
+    <p class="section-intro">الذكاء الاصطناعي التقليدي (<span class="en" lang="en" dir="ltr">Predictive AI</span>) يُصنّف ويتنبأ بناءً على بيانات موجودة، بينما الذكاء الاصطناعي التوليدي (<span class="en" lang="en" dir="ltr">Generative AI</span>) يُنشئ محتوى لم يكن موجوداً من قبل. في الترجمة الفورية الطبية، يؤدي كلا النوعين دوراً حيوياً ومتكاملاً.</p>
 
     <div class="models-grid">
       <article class="model-card">
-        <div class="model-num en">Type · 01</div>
-        <h3 class="model-name">Predictive AI</h3>
+        <div class="model-num en" lang="en" dir="ltr">Type · 01</div>
+        <h3 class="model-name" lang="en" dir="ltr">Predictive AI</h3>
         <div class="model-name-ar">الذكاء الاصطناعي التقليدي</div>
-        <span class="model-tag">Classification &amp; ASR</span>
-        <p class="model-desc">يهيمن على المهام التشغيلية الفورية: التعرف على الكلام الطبي، كشف اللغة تلقائياً، وتقييم جودة الترجمة بمقاييس مثل <span class="en">BLEU</span> و<span class="en">Meteor</span>.</p>
-        <div class="model-eg"><strong>أمثلة:</strong> <span class="en">Whisper</span>، <span class="en">BERT</span>، نماذج التصنيف</div>
+        <span class="model-tag" lang="en" dir="ltr">Classification &amp; ASR</span>
+        <p class="model-desc">يهيمن على المهام التشغيلية الفورية: التعرف على الكلام الطبي، كشف اللغة تلقائياً، وتقييم جودة الترجمة بمقاييس مثل <span class="en" lang="en" dir="ltr">BLEU</span> و<span class="en" lang="en" dir="ltr">Meteor</span>.</p>
+        <div class="model-eg"><strong>أمثلة:</strong> <span class="en" lang="en" dir="ltr">Whisper</span>، <span class="en" lang="en" dir="ltr">BERT</span>، نماذج التصنيف</div>
       </article>
 
       <article class="model-card">
-        <div class="model-num en">Type · 02</div>
-        <h3 class="model-name">Generative AI</h3>
+        <div class="model-num en" lang="en" dir="ltr">Type · 02</div>
+        <h3 class="model-name" lang="en" dir="ltr">Generative AI</h3>
         <div class="model-name-ar">الذكاء الاصطناعي التوليدي</div>
-        <span class="model-tag">Translation &amp; TTS</span>
-        <p class="model-desc">يُولّد ترجمات سياقية تراعي المعنى الكامل للجملة، ويُنتج كلاماً طبيعياً بلهجات متعددة، ويُنشئ ملخصات طبية متعددة اللغات عبر أنظمة <span class="en">RAG</span>.</p>
-        <div class="model-eg"><strong>أمثلة:</strong> <span class="en">GPT-4</span>، <span class="en">Claude</span>، <span class="en">ElevenLabs</span></div>
+        <span class="model-tag" lang="en" dir="ltr">Translation &amp; TTS</span>
+        <p class="model-desc">يُولّد ترجمات سياقية تراعي المعنى الكامل للجملة، ويُنتج كلاماً طبيعياً بلهجات متعددة، ويُنشئ ملخصات طبية متعددة اللغات عبر أنظمة <span class="en" lang="en" dir="ltr">RAG</span>.</p>
+        <div class="model-eg"><strong>أمثلة:</strong> <span class="en" lang="en" dir="ltr">GPT-4</span>، <span class="en" lang="en" dir="ltr">Claude</span>، <span class="en" lang="en" dir="ltr">ElevenLabs</span></div>
       </article>
 
       <article class="model-card">
-        <div class="model-num en">Integration</div>
-        <h3 class="model-name">Unified Pipeline</h3>
+        <div class="model-num en" lang="en" dir="ltr">Integration</div>
+        <h3 class="model-name" lang="en" dir="ltr">Unified Pipeline</h3>
         <div class="model-name-ar">النظام المتكامل</div>
-        <span class="model-tag">Real-time System</span>
-        <p class="model-desc">المشروع العملي المُرفق يُجسّد سلسلة <span class="en">ASR → LLM → TTS</span> العاملة في الوقت الفعلي — يثبت أن هذه التقنيات أصبحت في متناول المطورين الأفراد.</p>
-        <div class="model-eg"><strong>ملفات:</strong> <span class="en">VoiceRecorder_Whisper.py</span>، <span class="en">OpenAI_LLMs.py</span>، <span class="en">ElevenLabs_TTS.py</span></div>
+        <span class="model-tag" lang="en" dir="ltr">Real-time System</span>
+        <p class="model-desc">المشروع العملي المُرفق يُجسّد سلسلة <span class="en" lang="en" dir="ltr">ASR → LLM → TTS</span> العاملة في الوقت الفعلي — يثبت أن هذه التقنيات أصبحت في متناول المطورين الأفراد.</p>
+        <div class="model-eg"><strong>ملفات:</strong> <span class="en" lang="en" dir="ltr">VoiceRecorder_Whisper.py</span>، <span class="en" lang="en" dir="ltr">OpenAI_LLMs.py</span>، <span class="en" lang="en" dir="ltr">ElevenLabs_TTS.py</span></div>
       </article>
     </div>
 
@@ -1106,8 +1140,8 @@
         <thead>
           <tr>
             <th>وجه المقارنة</th>
-            <th>Predictive AI</th>
-            <th>Generative AI</th>
+            <th lang="en" dir="ltr">Predictive AI</th>
+            <th lang="en" dir="ltr">Generative AI</th>
           </tr>
         </thead>
         <tbody>
@@ -1123,13 +1157,13 @@
           </tr>
           <tr>
             <td><strong>النماذج المستخدمة</strong></td>
-            <td><span class="en">Whisper, BERT, Classification CNNs</span></td>
-            <td><span class="en">GPT-4, Claude, ElevenLabs TTS</span></td>
+            <td lang="en" dir="ltr"><span class="en" lang="en" dir="ltr">Whisper, BERT, Classification CNNs</span></td>
+            <td lang="en" dir="ltr"><span class="en" lang="en" dir="ltr">GPT-4, Claude, ElevenLabs TTS</span></td>
           </tr>
           <tr>
             <td><strong>أبرز الشركات</strong></td>
-            <td><span class="en">3M Health, Nuance (Microsoft), Suki AI</span></td>
-            <td><span class="en">Wordly, Boostlingo AI, OpenAI Health</span></td>
+            <td lang="en" dir="ltr"><span class="en" lang="en" dir="ltr">3M Health, Nuance (Microsoft), Suki AI</span></td>
+            <td lang="en" dir="ltr"><span class="en" lang="en" dir="ltr">Wordly, Boostlingo AI, OpenAI Health</span></td>
           </tr>
         </tbody>
       </table>
@@ -1146,30 +1180,30 @@
 
     <div class="models-grid">
       <article class="model-card">
-        <div class="model-num en">Model · 01</div>
-        <h3 class="model-name">Whisper</h3>
+        <div class="model-num en" lang="en" dir="ltr">Model · 01</div>
+        <h3 class="model-name" lang="en" dir="ltr">Whisper</h3>
         <div class="model-name-ar">نموذج التعرف على الكلام</div>
-        <span class="model-tag">Predictive AI · ASR</span>
-        <p class="model-desc">نموذج تعلم عميق أطلقته <span class="en">OpenAI</span> عام <span class="num">2022</span>، مُدرَّب على أكثر من <span class="num">680</span> ألف ساعة من البيانات الصوتية متعددة اللغات. يعتمد على بنية <span class="en">Transformer encoder-decoder</span> لتحويل الكلام المسجل إلى نص مكتوب.</p>
-        <div class="model-eg"><strong>تطبيق:</strong> تحويل كلام المريض عبر <span class="en">OpenAI API</span> في <span class="en">VoiceRecorder_Whisper.py</span> — دالة <span class="en">transcribe_audio</span> تُعيد النص واللغة المكتشفة.</div>
+        <span class="model-tag" lang="en" dir="ltr">Predictive AI · ASR</span>
+        <p class="model-desc">نموذج تعلم عميق أطلقته <span class="en" lang="en" dir="ltr">OpenAI</span> عام <span class="num">2022</span>، مُدرَّب على أكثر من <span class="num">680</span> ألف ساعة من البيانات الصوتية متعددة اللغات. يعتمد على بنية <span class="en" lang="en" dir="ltr">Transformer encoder-decoder</span> لتحويل الكلام المسجل إلى نص مكتوب.</p>
+        <div class="model-eg"><strong>تطبيق:</strong> تحويل كلام المريض عبر <span class="en" lang="en" dir="ltr">OpenAI API</span> في <span class="en" lang="en" dir="ltr">VoiceRecorder_Whisper.py</span> — دالة <span class="en" lang="en" dir="ltr">transcribe_audio</span> تُعيد النص واللغة المكتشفة.</div>
       </article>
 
       <article class="model-card">
-        <div class="model-num en">Model · 02</div>
-        <h3 class="model-name">Transformer / LLMs</h3>
+        <div class="model-num en" lang="en" dir="ltr">Model · 02</div>
+        <h3 class="model-name" lang="en" dir="ltr">Transformer / LLMs</h3>
         <div class="model-name-ar">نماذج الترجمة السياقية</div>
-        <span class="model-tag">Generative AI</span>
-        <p class="model-desc">بنية <span class="en">Transformer</span> من ورقة «Attention Is All You Need» (<span class="num">2017</span>) — أساس نماذج <span class="en">GPT-4</span> و<span class="en">Claude</span> و<span class="en">DeepSeek</span>. تفهم العلاقات بين الكلمات في الجملة كاملة، لا كلمة بكلمة.</p>
-        <div class="model-eg"><strong>مثال:</strong> عبارة «القلب يُفرز هرموناً» vs «القلب يُفرز دموعاً» — الـ <span class="en">LLMs</span> تفهم السياق وتترجم بدقة مصطلحية حقيقية.</div>
+        <span class="model-tag" lang="en" dir="ltr">Generative AI</span>
+        <p class="model-desc">بنية <span class="en" lang="en" dir="ltr">Transformer</span> من ورقة «Attention Is All You Need» (<span class="num">2017</span>) — أساس نماذج <span class="en" lang="en" dir="ltr">GPT-4</span> و<span class="en" lang="en" dir="ltr">Claude</span> و<span class="en" lang="en" dir="ltr">DeepSeek</span>. تفهم العلاقات بين الكلمات في الجملة كاملة، لا كلمة بكلمة.</p>
+        <div class="model-eg"><strong>مثال:</strong> عبارة «القلب يُفرز هرموناً» vs «القلب يُفرز دموعاً» — الـ <span class="en" lang="en" dir="ltr">LLMs</span> تفهم السياق وتترجم بدقة مصطلحية حقيقية.</div>
       </article>
 
       <article class="model-card">
-        <div class="model-num en">Model · 03</div>
-        <h3 class="model-name">Diffusion TTS</h3>
+        <div class="model-num en" lang="en" dir="ltr">Model · 03</div>
+        <h3 class="model-name" lang="en" dir="ltr">Diffusion TTS</h3>
         <div class="model-name-ar">نماذج توليد الكلام الطبيعي</div>
-        <span class="model-tag">Generative AI · ElevenLabs</span>
-        <p class="model-desc">نماذج الانتشار (<span class="en">Diffusion Models</span>) تُزيل الضوضاء تدريجياً حتى يتحول الإشارة إلى كلام واضح وطبيعي. <span class="en">ElevenLabs</span> يعتمد على هذه البنية لإنتاج أصوات تكاد بشرية.</p>
-        <div class="model-eg"><strong>تطبيق:</strong> <span class="en">ElevenLabs_TTS.py</span> — صوت <span class="en">eleven_multilingual_v2</span> يدعم العربية والإنجليزية ويُشغَّل فوراً للمريض.</div>
+        <span class="model-tag" lang="en" dir="ltr">Generative AI · ElevenLabs</span>
+        <p class="model-desc">نماذج الانتشار (<span class="en" lang="en" dir="ltr">Diffusion Models</span>) تُزيل الضوضاء تدريجياً حتى يتحول الإشارة إلى كلام واضح وطبيعي. <span class="en" lang="en" dir="ltr">ElevenLabs</span> يعتمد على هذه البنية لإنتاج أصوات تكاد بشرية.</p>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en" lang="en" dir="ltr">ElevenLabs_TTS.py</span> — صوت <span class="en" lang="en" dir="ltr">eleven_multilingual_v2</span> يدعم العربية والإنجليزية ويُشغَّل فوراً للمريض.</div>
       </article>
     </div>
   </div>
@@ -1185,10 +1219,10 @@
     <div class="company-row">
       <div class="company-rank num">01</div>
       <div>
-        <div class="company-name">Wordly AI</div>
-        <div class="company-origin">USA · Medical Conferences</div>
+        <div class="company-name" lang="en" dir="ltr">Wordly AI</div>
+        <div class="company-origin" lang="en" dir="ltr">USA · Medical Conferences</div>
       </div>
-      <p class="company-desc">شركة أمريكية متخصصة في الترجمة الفورية الآنية عبر الذكاء الاصطناعي للمؤتمرات والفعاليات الطبية. تعتمد على نماذج <span class="en">Transformer</span> مُدرَّبة على المحتوى المهني، وتدعم <strong>60 لغة</strong> بما فيها العربية.</p>
+      <p class="company-desc">شركة أمريكية متخصصة في الترجمة الفورية الآنية عبر الذكاء الاصطناعي للمؤتمرات والفعاليات الطبية. تعتمد على نماذج <span class="en" lang="en" dir="ltr">Transformer</span> مُدرَّبة على المحتوى المهني، وتدعم <strong>60 لغة</strong> بما فيها العربية.</p>
       <div class="company-stat">
         <div class="company-stat-num num">1M+</div>
         <div class="company-stat-label">دقيقة ترجمة شهرياً</div>
@@ -1198,10 +1232,10 @@
     <div class="company-row">
       <div class="company-rank num">02</div>
       <div>
-        <div class="company-name">Nuance</div>
-        <div class="company-origin">Microsoft · Dragon Medical</div>
+        <div class="company-name" lang="en" dir="ltr">Nuance</div>
+        <div class="company-origin" lang="en" dir="ltr">Microsoft · Dragon Medical</div>
       </div>
-      <p class="company-desc">منصة التعرف على الكلام الطبي الأوسع انتشاراً في المستشفيات. تُحوّل ملاحظات الأطباء الصوتية إلى وثائق سريرية منظمة وفق معايير <span class="en">HL7</span> و<span class="en">FHIR</span>.</p>
+      <p class="company-desc">منصة التعرف على الكلام الطبي الأوسع انتشاراً في المستشفيات. تُحوّل ملاحظات الأطباء الصوتية إلى وثائق سريرية منظمة وفق معايير <span class="en" lang="en" dir="ltr">HL7</span> و<span class="en" lang="en" dir="ltr">FHIR</span>.</p>
       <div class="company-stat">
         <div class="company-stat-num num">50%</div>
         <div class="company-stat-label">تقليل وقت التوثيق</div>
@@ -1211,10 +1245,10 @@
     <div class="company-row">
       <div class="company-rank num">03</div>
       <div>
-        <div class="company-name">Boostlingo AI</div>
-        <div class="company-origin">USA · Remote Medical Translation</div>
+        <div class="company-name" lang="en" dir="ltr">Boostlingo AI</div>
+        <div class="company-origin" lang="en" dir="ltr">USA · Remote Medical Translation</div>
       </div>
-      <p class="company-desc">منصة متكاملة لإدارة خدمات التفسير والترجمة الطبية عن بُعد. تدمج بين نماذج تصنيف و<span class="en">LLMs</span> للترجمة الآلية الاحتياطية عند عدم توافر مترجم بشري.</p>
+      <p class="company-desc">منصة متكاملة لإدارة خدمات التفسير والترجمة الطبية عن بُعد. تدمج بين نماذج تصنيف و<span class="en" lang="en" dir="ltr">LLMs</span> للترجمة الآلية الاحتياطية عند عدم توافر مترجم بشري.</p>
       <div class="company-stat">
         <div class="company-stat-num num">30s</div>
         <div class="company-stat-label">انتظار بدلاً من 8 دقائق</div>
@@ -1228,16 +1262,16 @@
   <div class="container">
     <div class="section-eyebrow"><span class="ch num">5</span><span>الخط الزمني</span></div>
     <h2 class="section-title">تطور المجال<br>من <span class="num">2017</span> إلى <span class="num">2030</span></h2>
-    <p class="section-intro">مسار تطور الذكاء الاصطناعي في الترجمة الطبية — من ثورة <span class="en">Transformer</span> إلى أنظمة متعددة الوسائط ضمن رؤية المملكة <span class="num">2030</span>.</p>
+    <p class="section-intro">مسار تطور الذكاء الاصطناعي في الترجمة الطبية — من ثورة <span class="en" lang="en" dir="ltr">Transformer</span> إلى أنظمة متعددة الوسائط ضمن رؤية المملكة <span class="num">2030</span>.</p>
 
     <div class="timeline-wrap">
       <div class="timeline">
 
         <div class="tl-item right">
           <div class="tl-card">
-            <h4>Attention Is All You Need</h4>
-            <p>نشر ورقة <span class="en">Vaswani et al.</span> — أساس كل نماذج اللغة الكبيرة الحديثة.</p>
-            <div class="tl-model en">Model: Transformer</div>
+            <h4 lang="en" dir="ltr">Attention Is All You Need</h4>
+            <p>نشر ورقة <span class="en" lang="en" dir="ltr">Vaswani et al.</span> — أساس كل نماذج اللغة الكبيرة الحديثة.</p>
+            <div class="tl-model en" lang="en" dir="ltr">Model: Transformer</div>
           </div>
           <div class="tl-year num">2017</div>
         </div>
@@ -1245,17 +1279,17 @@
         <div class="tl-item left">
           <div class="tl-year num">2022</div>
           <div class="tl-card">
-            <h4>Whisper Launch</h4>
-            <p>إطلاق <span class="en">OpenAI Whisper</span> — دعم <span class="num">99</span> لغة وتمييز المصطلحات الطبية بدقة عالية.</p>
-            <div class="tl-model en">Model: Whisper ASR</div>
+            <h4 lang="en" dir="ltr">Whisper Launch</h4>
+            <p>إطلاق <span class="en" lang="en" dir="ltr">OpenAI Whisper</span> — دعم <span class="num">99</span> لغة وتمييز المصطلحات الطبية بدقة عالية.</p>
+            <div class="tl-model en" lang="en" dir="ltr">Model: Whisper ASR</div>
           </div>
         </div>
 
         <div class="tl-item right">
           <div class="tl-card">
-            <h4>LLMs in Healthcare</h4>
-            <p>انتشار <span class="en">GPT-4</span> و<span class="en">Claude</span> في الترجمة السياقية الطبية — تجاوز الترجمة الحرفية.</p>
-            <div class="tl-model en">Models: GPT-4, Claude</div>
+            <h4 lang="en" dir="ltr">LLMs in Healthcare</h4>
+            <p>انتشار <span class="en" lang="en" dir="ltr">GPT-4</span> و<span class="en" lang="en" dir="ltr">Claude</span> في الترجمة السياقية الطبية — تجاوز الترجمة الحرفية.</p>
+            <div class="tl-model en" lang="en" dir="ltr">Models: GPT-4, Claude</div>
           </div>
           <div class="tl-year num">2023</div>
         </div>
@@ -1263,17 +1297,17 @@
         <div class="tl-item left">
           <div class="tl-year num">2024</div>
           <div class="tl-card">
-            <h4>EU AI Act &amp; NEJM AI</h4>
-            <p>تطبيق <span class="en">EU AI Act</span> — تصنيف الأنظمة الطبية كـ <span class="en">High-Risk AI</span>. تقرير <span class="en">NEJM AI</span> يتنبأ بنماذج متخصصة تتفوق على العامة بحلول <span class="num">2027</span>.</p>
-            <div class="tl-model en">Regulation milestone</div>
+            <h4 lang="en" dir="ltr">EU AI Act &amp; NEJM AI</h4>
+            <p>تطبيق <span class="en" lang="en" dir="ltr">EU AI Act</span> — تصنيف الأنظمة الطبية كـ <span class="en" lang="en" dir="ltr">High-Risk AI</span>. تقرير <span class="en" lang="en" dir="ltr">NEJM AI</span> يتنبأ بنماذج متخصصة تتفوق على العامة بحلول <span class="num">2027</span>.</p>
+            <div class="tl-model en" lang="en" dir="ltr">Regulation milestone</div>
           </div>
         </div>
 
         <div class="tl-item right">
           <div class="tl-card">
-            <h4>Multimodal Translation</h4>
-            <p>نماذج <span class="en">GPT-4V</span> و<span class="en">Gemini</span> تقرأ تعابير الوجه والإشارات غير اللفظية — ترجمة متعددة الوسائط.</p>
-            <div class="tl-model en">Multimodal AI</div>
+            <h4 lang="en" dir="ltr">Multimodal Translation</h4>
+            <p>نماذج <span class="en" lang="en" dir="ltr">GPT-4V</span> و<span class="en" lang="en" dir="ltr">Gemini</span> تقرأ تعابير الوجه والإشارات غير اللفظية — ترجمة متعددة الوسائط.</p>
+            <div class="tl-model en" lang="en" dir="ltr">Multimodal AI</div>
           </div>
           <div class="tl-year num">2025</div>
         </div>
@@ -1283,7 +1317,7 @@
           <div class="tl-card" style="border: 2px dashed var(--rust); background: rgba(156, 67, 33, 0.03);">
             <h4>رؤية 2030 · الصحة الرقمية</h4>
             <p>أنظمة الترجمة الطبية الذكية أداة أساسية لتمكين الكوادر الصحية من خلفيات لغوية متنوعة — ضمن مشاريع الصحة الرقمية في المملكة.</p>
-            <div class="tl-model" style="color: var(--rust);">Saudi Digital Health</div>
+            <div class="tl-model" lang="en" dir="ltr" style="color: var(--rust);">Saudi Digital Health</div>
           </div>
         </div>
 
@@ -1301,21 +1335,21 @@
 
     <div class="challenges-grid">
       <div class="challenge">
-        <div class="ch-num en">Challenge · 01</div>
+        <div class="ch-num en" lang="en" dir="ltr">Challenge · 01</div>
         <h4>التحديات التقنية</h4>
-        <p>دقة المصطلحات التخصصية — كلمة «<span class="en">Discharge</span>» تعني الخروج أو الإفراز حسب السياق. انخفاض دقة <span class="en">Whisper</span> مع اللهجات العربية المحلية. في الطوارئ، حتى تأخير <span class="num">2</span>-<span class="num">3</span> ثوانٍ قد يُعيق التواصل الحرج.</p>
+        <p>دقة المصطلحات التخصصية — كلمة «<span class="en" lang="en" dir="ltr">Discharge</span>» تعني الخروج أو الإفراز حسب السياق. انخفاض دقة <span class="en" lang="en" dir="ltr">Whisper</span> مع اللهجات العربية المحلية. في الطوارئ، حتى تأخير <span class="num">2</span>-<span class="num">3</span> ثوانٍ قد يُعيق التواصل الحرج.</p>
       </div>
 
       <div class="challenge">
-        <div class="ch-num en">Challenge · 02</div>
+        <div class="ch-num en" lang="en" dir="ltr">Challenge · 02</div>
         <h4>التحديات الأخلاقية</h4>
-        <p>المسؤولية القانونية عند خطأ في ترجمة جرعة دواء — من يتحمل؟ خصوصية <span class="en">PHI</span> عند معالجة المحادثات على خوادم خارجية. مهنة الترجمة الطبية البشرية (~<span class="num">50,000</span> مترجم في أمريكا) مهددة بالتقلص.</p>
+        <p>المسؤولية القانونية عند خطأ في ترجمة جرعة دواء — من يتحمل؟ خصوصية <span class="en" lang="en" dir="ltr">PHI</span> عند معالجة المحادثات على خوادم خارجية. مهنة الترجمة الطبية البشرية (~<span class="num">50,000</span> مترجم في أمريكا) مهددة بالتقلص.</p>
       </div>
 
       <div class="challenge">
-        <div class="ch-num en">Challenge · 03</div>
+        <div class="ch-num en" lang="en" dir="ltr">Challenge · 03</div>
         <h4>التحديات التنظيمية</h4>
-        <p>قانون <span class="en">HIPAA</span> الأمريكي و<span class="en">EU AI Act</span> (<span class="num">2024</span>) يفرضان متطلبات صارمة. في المملكة، <span class="en">SDAIA</span> تعمل على إطار تنظيمي للذكاء الاصطناعي في القطاع الصحي — فرصة لتصميم تشريعات حديثة.</p>
+        <p>قانون <span class="en" lang="en" dir="ltr">HIPAA</span> الأمريكي و<span class="en" lang="en" dir="ltr">EU AI Act</span> (<span class="num">2024</span>) يفرضان متطلبات صارمة. في المملكة، <span class="en" lang="en" dir="ltr">SDAIA</span> تعمل على إطار تنظيمي للذكاء الاصطناعي في القطاع الصحي — فرصة لتصميم تشريعات حديثة.</p>
       </div>
     </div>
   </div>
@@ -1330,13 +1364,13 @@
 
     <div class="future-grid">
       <div class="future-item">
-        <h4>Multimodal Translation</h4>
-        <p>الانتقال من الترجمة النصية إلى متعددة الوسائط — قراءة تعابير الوجه والإشارات غير اللفظية كالألم والقلق. تجربة <span class="en">GPT-4V</span> و<span class="en">Gemini</span> تُنبئ بهذا التحول.</p>
+        <h4 lang="en" dir="ltr">Multimodal Translation</h4>
+        <p>الانتقال من الترجمة النصية إلى متعددة الوسائط — قراءة تعابير الوجه والإشارات غير اللفظية كالألم والقلق. تجربة <span class="en" lang="en" dir="ltr">GPT-4V</span> و<span class="en" lang="en" dir="ltr">Gemini</span> تُنبئ بهذا التحول.</p>
       </div>
 
       <div class="future-item">
-        <h4>Specialized Medical LLMs</h4>
-        <p>نماذج مُدرَّبة على أورام الأطفال، أمراض القلب، الصحة النفسية — حيث يختلف الإطار المصطلحي جذرياً. <span class="en">NEJM AI</span> يتنبأ بتفوقها على النماذج العامة بحلول <span class="num">2027</span>.</p>
+        <h4 lang="en" dir="ltr">Specialized Medical LLMs</h4>
+        <p>نماذج مُدرَّبة على أورام الأطفال، أمراض القلب، الصحة النفسية — حيث يختلف الإطار المصطلحي جذرياً. <span class="en" lang="en" dir="ltr">NEJM AI</span> يتنبأ بتفوقها على النماذج العامة بحلول <span class="num">2027</span>.</p>
       </div>
 
       <div class="future-item">
@@ -1351,12 +1385,12 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-about">
-      <h5>About this research</h5>
-      <p>بحث طلابي في مقرر <span class="en">Advanced Deep Learning</span> يدرس تطبيقات الذكاء الاصطناعي التقليدي والتوليدي في صناعة الترجمة الفورية الطبية. يتضمن مشروعاً عملياً مبنياً على <span class="en">Whisper</span> و<span class="en">DeepSeek</span> و<span class="en">ElevenLabs</span>.</p>
+      <h5 lang="en" dir="ltr">About this research</h5>
+      <p>بحث طلابي في مقرر <span class="en" lang="en" dir="ltr">Advanced Deep Learning</span> يدرس تطبيقات الذكاء الاصطناعي التقليدي والتوليدي في صناعة الترجمة الفورية الطبية. يتضمن مشروعاً عملياً مبنياً على <span class="en" lang="en" dir="ltr">Whisper</span> و<span class="en" lang="en" dir="ltr">DeepSeek</span> و<span class="en" lang="en" dir="ltr">ElevenLabs</span>.</p>
     </div>
 
     <div class="footer-col">
-      <h5>References</h5>
+      <h5 lang="en" dir="ltr">References</h5>
       <ul>
         <li>Radford et al. (2022) — Whisper</li>
         <li>Vaswani et al. (2017) — Attention</li>
@@ -1367,7 +1401,7 @@
     </div>
 
     <div class="footer-col">
-      <h5>Companies cited</h5>
+      <h5 lang="en" dir="ltr">Companies cited</h5>
       <ul>
         <li><a href="https://wordly.ai">Wordly AI — wordly.ai</a></li>
         <li><a href="https://www.nuance.com/healthcare">Nuance — nuance.com</a></li>
@@ -1377,8 +1411,8 @@
   </div>
 
   <div class="footer-bottom">
-    <span>محمد أحمد المفرجي · <span class="en">S444001309 · Advanced Deep Learning</span></span>
-    <span class="en">29/05/2026 · Under supervision of Dr. Ahmed Al-Hindi</span>
+    <span>محمد أحمد المفرجي · <span class="en" lang="en" dir="ltr">S444001309 · Advanced Deep Learning</span></span>
+    <span lang="en" dir="ltr" class="en-block">29/05/2026 · Under supervision of Dr. Ahmed Al-Hindi</span>
   </div>
 </footer>
 
