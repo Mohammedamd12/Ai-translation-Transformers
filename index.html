@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="content-language" content="ar">
-<title>الذكاء الاصطناعي في الترجمة الفورية الطبية | محمد أحمد المفرجي</title>
+<title>الذكاء الاصطناعي في الإعلام والترفيه — الترجمة الآلية للمحتوى الطبي | محمد أحمد المفرجي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -481,8 +481,12 @@
   /* MODELS */
   .models-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+  }
+
+  @media (min-width: 1100px) {
+    .models-grid.four-cols { grid-template-columns: repeat(4, 1fr); }
   }
 
   .model-card {
@@ -996,7 +1000,7 @@
 </head>
 <body lang="ar" dir="rtl">
 
-<h1 class="sr-only">الذكاء الاصطناعي في الترجمة الفورية الطبية — بحث في مقرر التعلم العميق المتقدم</h1>
+<h1 class="sr-only">الذكاء الاصطناعي في صناعة الإعلام والترفيه — الترجمة الآلية للمحتوى الطبي بين العربية والإنجليزية</h1>
 
 <!-- HERO -->
 <header class="hero">
@@ -1007,8 +1011,8 @@
 
   <div class="hero-center">
     <div class="hero-eyebrow" lang="en" dir="ltr">A research study in</div>
-    <h1>الذكاء الاصطناعي<br>في <span class="accent">الترجمة الفورية الطبية</span></h1>
-    <p class="hero-subtitle">كيف تُحدث تقنيات <span class="en" lang="en" dir="ltr">ASR</span> و<span class="en" lang="en" dir="ltr">LLMs</span> و<span class="en" lang="en" dir="ltr">TTS</span> تحولاً جذرياً في التواصل بين المرضى والأطباء — من التعرف على الكلام إلى الترجمة السياقية وإعادة إنتاج الصوت الطبيعي</p>
+    <h1>الذكاء الاصطناعي<br>في <span class="accent">الإعلام والترفيه</span></h1>
+    <p class="hero-subtitle">الترجمة الآلية للمحتوى الطبي بين العربية والإنجليزية — في البرامج الصحية التلفزيونية، البودكاست الطبي، المؤتمرات المبثوثة، ومنصات الفيديو الرقمية</p>
     <p class="hero-supervisor">محمد أحمد المفرجي · تحت إشراف د. أحمد الهندي</p>
     <p class="hero-meta">التاريخ: <span class="num">29</span>/<span class="num">05</span>/<span class="num">2026</span></p>
   </div>
@@ -1016,7 +1020,7 @@
   <div class="hero-bottom container" style="padding: 0;">
     <div class="stat">
       <div class="stat-num"><span class="num">6</span><span class="unit">مليار $</span></div>
-      <div class="stat-label">حجم سوق الترجمة الطبية عالمياً</div>
+      <div class="stat-label">حجم سوق الترجمة والمحتوى الطبي الإعلامي</div>
     </div>
     <div class="stat">
       <div class="stat-num"><span class="num">99</span><span class="unit">لغة</span></div>
@@ -1036,7 +1040,7 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <span class="nav-logo" lang="en" dir="ltr">AI × Medical Translation</span>
+    <span class="nav-logo" lang="en" dir="ltr">AI × Media &amp; Medical Content</span>
     <ul class="nav-links">
       <li><a href="#intro">المقدمة</a></li>
       <li><a href="#ai-types">التقليدي vs التوليدي</a></li>
@@ -1053,47 +1057,47 @@
 <section id="intro">
   <div class="container">
     <div class="section-eyebrow"><span class="ch num">1</span><span>الملخص والمقدمة</span></div>
-    <h2 class="section-title">عندما يكون الخطأ<br>ليس مجرد سوء فهم</h2>
-    <p class="section-intro">تُعد صناعة الترجمة الفورية الطبية من أكثر القطاعات حساسية وتعقيداً في قطاع الخدمات الصحية والإعلام اللغوي، إذ تُمكّن المرضى والأطباء من التواصل رغم الحواجز اللغوية في مواقف قد تكون مصيرية.</p>
+    <h2 class="section-title">عندما يصل الخطأ<br>إلى ملايين المشاهدين</h2>
+    <p class="section-intro">تُعد صناعة الإعلام والترفيه من أكثر القطاعات استفادة من الذكاء الاصطناعي في الترجمة الآلية للمحتوى المتخصص. يركز هذا البحث على ترجمة المحتوى الطبي بين العربية والإنجليزية ضمن البرامج الصحية التلفزيونية والبودكاست والمؤتمرات المبثوثة ومنصات الفيديو الرقمية.</p>
 
     <div class="intro-grid">
       <div>
         <h3 class="sub-heading">الملخص التنفيذي</h3>
-        <p class="body-text">يستعرض هذا البحث كيف أحدث الذكاء الاصطناعي تحولاً جذرياً في هذه الصناعة عبر ثلاث تطبيقات رئيسية: التعرف التلقائي على الكلام باستخدام <span class="en" lang="en" dir="ltr">Whisper</span>، الترجمة العصبية الفورية عبر نماذج اللغة الكبيرة مثل <span class="en" lang="en" dir="ltr">GPT</span> و<span class="en" lang="en" dir="ltr">DeepSeek</span>، والتحويل النصي إلى كلام طبيعي باستخدام <span class="en" lang="en" dir="ltr">ElevenLabs</span>.</p>
-        <p class="body-text">توصل البحث إلى أن دمج هذه التقنيات في نظام واحد قادر على توفير تجربة ترجمة طبية لحظية عالية الجودة وبتكلفة أقل من الحلول التقليدية. كما ناقش التحديات التقنية والأخلاقية المرتبطة بالدقة والمسؤولية القانونية وحماية خصوصية المرضى.</p>
+        <p class="body-text">يستعرض هذا البحث أربع تطبيقات رئيسية: التعرف التلقائي على الكلام عبر <span class="en" lang="en" dir="ltr">Whisper</span>، والترجمة العصبية السياقية عبر <span class="en" lang="en" dir="ltr">Transformer</span> و<span class="en" lang="en" dir="ltr">LLMs</span>، وتوليد الكلام الطبيعي متعدد اللغات عبر <span class="en" lang="en" dir="ltr">Diffusion Models</span>، وتوليد بيانات تدريب اصطناعية عبر <span class="en" lang="en" dir="ltr">GANs</span>.</p>
+        <p class="body-text">توصل البحث إلى أن التحدي الأساسي لا يتمثل في الترجمة اللغوية بحد ذاتها، بل في <strong>الحفاظ على الدقة المصطلحية الطبية</strong> عند نشر محتوى إعلامي يصل إلى ملايين المشاهدين.</p>
 
         <h3 class="sub-heading">نبذة عن الصناعة</h3>
-        <p class="body-text">الترجمة الفورية الطبية (<span class="en" lang="en" dir="ltr">Medical Interpretation</span>) هي خدمة متخصصة تهدف إلى تسهيل التواصل بين المرضى ومقدمي الرعاية الصحية من خلال ترجمة المحادثات الطبية بشكل فوري ودقيق. من أبرز الشركات: <span class="en" lang="en" dir="ltr">Language Line Solutions</span> و<span class="en" lang="en" dir="ltr">Lionbridge</span> و<span class="en" lang="en" dir="ltr">TransPerfect</span>.</p>
-        <p class="body-text">أبرز التحديات التقليدية: نقص المترجمين المتخصصين، ارتفاع التكلفة، تأخر الاستجابة، وضعف الدقة المصطلحية في الحالات الطبية الحساسة.</p>
+        <p class="body-text">تنتمي هذه الدراسة إلى صناعة <span class="en" lang="en" dir="ltr">Media &amp; Entertainment</span> — البث التلفزيوني، منصات الفيديو الرقمية، البودكاست، والمحتوى التعليمي عبر الإنترنت. يُعد المحتوى الطبي والصحي أحد أسرع أنواع المحتوى نمواً على المنصات الرقمية.</p>
+        <p class="body-text">مع ازدياد استهلاك المحتوى الصحي عبر يوتيوب والبودكاست والمؤتمرات الرقمية، أصبحت الترجمة الآلية عاملاً أساسياً في نشر المعرفة الطبية عالمياً.</p>
       </div>
 
       <div>
         <blockquote class="pull-quote">
-          المريض الذي لا يستطيع شرح أعراضه للطبيب — بسبب حاجز لغوي لا عجز معرفي — يعاني من ظلم حقيقي قابل للحل تقنياً.
+          الترجمة الآلية للمحتوى الطبي في الإعلام ليست مجرد تقنية — بل قناة لإيصال المعرفة الصحية الدقيقة إلى جماهير عالمية متعددة اللغات.
           <cite>— من الخاتمة الشخصية للتقرير</cite>
         </blockquote>
 
         <h3 class="sub-heading">لماذا الذكاء الاصطناعي مهم؟</h3>
-        <p class="body-text">تكمن أهميته في وفرة البيانات الصوتية والنصية الطبية، والحاجة لقرارات وترجمات فورية خصوصاً في أقسام الطوارئ. عملية الترجمة الطبية تتكون من خطوات واضحة: تحويل الكلام إلى نص، ثم ترجمته، ثم إعادة إنتاجه صوتياً — مما يجعلها مناسبة جداً للأتمتة باستخدام نماذج التعلم العميق.</p>
+        <p class="body-text">وفرة البيانات النصية والصوتية، الحاجة لترجمة فورية للمؤتمرات الطبية، وتسريع إنتاج الترجمات والدبلجة للمحتوى الصحي على المنصات الرقمية. سلسلة العمل: تحويل الكلام → نص → ترجمة → نطق — خطوات محددة قابلة للأتمتة بكفاءة عالية.</p>
 
-        <p class="body-text">اعتمد البحث على أوراق علمية من <span class="en" lang="en" dir="ltr">arXiv</span> و<span class="en" lang="en" dir="ltr">PubMed</span>، وتقارير صناعية من <span class="en" lang="en" dir="ltr">Grand View Research</span> و<span class="en" lang="en" dir="ltr">Slator</span>، مع التحقق من المصادر باستخدام <span class="en" lang="en" dir="ltr">ChatGPT</span> و<span class="en" lang="en" dir="ltr">Claude</span> و<span class="en" lang="en" dir="ltr">Perplexity</span>.</p>
+        <p class="body-text">يهدف البحث إلى رسم خارطة واضحة لتطبيقات الذكاء الاصطناعي في <strong>ترجمة المحتوى الطبي الإعلامي بين العربية والإنجليزية</strong>، مع التمييز بين الذكاء التقليدي والتوليدي. اعتمد على <span class="en" lang="en" dir="ltr">arXiv</span> و<span class="en" lang="en" dir="ltr">PubMed</span> و<span class="en" lang="en" dir="ltr">Grand View Research</span> و<span class="en" lang="en" dir="ltr">Slator</span> و<span class="en" lang="en" dir="ltr">AI in Healthcare journals</span>.</p>
       </div>
     </div>
 
     <div class="pipeline">
       <div class="pipeline-step">
         <div class="step-label en" lang="en" dir="ltr">ASR</div>
-        <div class="step-desc">Whisper — كلام → نص</div>
+        <div class="step-desc">Whisper — بودكاست / محاضرات → نص</div>
       </div>
       <span class="pipeline-arrow">←</span>
       <div class="pipeline-step">
         <div class="step-label en" lang="en" dir="ltr">LLM</div>
-        <div class="step-desc">DeepSeek / GPT — ترجمة سياقية</div>
+        <div class="step-desc">DeepSeek / GPT — ترجمة محتوى إعلامي طبي</div>
       </div>
       <span class="pipeline-arrow">←</span>
       <div class="pipeline-step">
         <div class="step-label en" lang="en" dir="ltr">TTS</div>
-        <div class="step-desc">ElevenLabs — نص → صوت طبيعي</div>
+        <div class="step-desc">ElevenLabs — دبلجة فيديوهات وبودكاست</div>
       </div>
     </div>
   </div>
@@ -1104,7 +1108,7 @@
   <div class="container">
     <div class="section-eyebrow"><span class="ch num">2</span><span>التقليدي مقابل التوليدي</span></div>
     <h2 class="section-title">نوعان من الذكاء<br>في سلسلة واحدة</h2>
-    <p class="section-intro">الذكاء الاصطناعي التقليدي (<span class="en" lang="en" dir="ltr">Predictive AI</span>) يُصنّف ويتنبأ بناءً على بيانات موجودة، بينما الذكاء الاصطناعي التوليدي (<span class="en" lang="en" dir="ltr">Generative AI</span>) يُنشئ محتوى لم يكن موجوداً من قبل. في الترجمة الفورية الطبية، يؤدي كلا النوعين دوراً حيوياً ومتكاملاً.</p>
+    <p class="section-intro">الذكاء الاصطناعي التقليدي (<span class="en" lang="en" dir="ltr">Predictive AI</span>) يُصنّف ويتنبأ بناءً على بيانات موجودة، بينما الذكاء الاصطناعي التوليدي (<span class="en" lang="en" dir="ltr">Generative AI</span>) يُنشئ محتوى لم يكن موجوداً من قبل. في ترجمة المحتوى الطبي الإعلامي، يؤدي كلا النوعين دوراً حيوياً ومتكاملاً.</p>
 
     <div class="models-grid">
       <article class="model-card">
@@ -1158,7 +1162,7 @@
           <tr>
             <td><strong>النماذج المستخدمة</strong></td>
             <td lang="en" dir="ltr"><span class="en" lang="en" dir="ltr">Whisper, BERT, Classification CNNs</span></td>
-            <td lang="en" dir="ltr"><span class="en" lang="en" dir="ltr">GPT-4, Claude, ElevenLabs TTS</span></td>
+            <td lang="en" dir="ltr"><span class="en" lang="en" dir="ltr">GPT-4, Claude, DeepSeek, ElevenLabs TTS, GANs, Diffusion Models</span></td>
           </tr>
           <tr>
             <td><strong>أبرز الشركات</strong></td>
@@ -1175,17 +1179,17 @@
 <section id="models">
   <div class="container">
     <div class="section-eyebrow"><span class="ch num">3</span><span>نماذج التعلم العميق</span></div>
-    <h2 class="section-title">ثلاثة نماذج<br>في سلسلة العمل</h2>
-    <p class="section-intro">اختار هذا القسم ثلاثة نماذج تمثل العمود الفقري التقني لأنظمة الترجمة الفورية الطبية الحديثة، كل نموذج يعالج مرحلة مختلفة في سلسلة العمل.</p>
+    <h2 class="section-title">أربعة نماذج<br>في سلسلة العمل</h2>
+    <p class="section-intro">اختار هذا القسم أربعة نماذج تمثل العمود الفقري التقني لأنظمة ترجمة المحتوى الطبي الإعلامي الحديثة — كل نموذج يعالج مرحلة مختلفة في سلسلة الإنتاج من التسجيل إلى الدبلجة.</p>
 
-    <div class="models-grid">
+    <div class="models-grid four-cols">
       <article class="model-card">
         <div class="model-num en" lang="en" dir="ltr">Model · 01</div>
         <h3 class="model-name" lang="en" dir="ltr">Whisper</h3>
         <div class="model-name-ar">نموذج التعرف على الكلام</div>
         <span class="model-tag" lang="en" dir="ltr">Predictive AI · ASR</span>
-        <p class="model-desc">نموذج تعلم عميق أطلقته <span class="en" lang="en" dir="ltr">OpenAI</span> عام <span class="num">2022</span>، مُدرَّب على أكثر من <span class="num">680</span> ألف ساعة من البيانات الصوتية متعددة اللغات. يعتمد على بنية <span class="en" lang="en" dir="ltr">Transformer encoder-decoder</span> لتحويل الكلام المسجل إلى نص مكتوب.</p>
-        <div class="model-eg"><strong>تطبيق:</strong> تحويل كلام المريض عبر <span class="en" lang="en" dir="ltr">OpenAI API</span> في <span class="en" lang="en" dir="ltr">VoiceRecorder_Whisper.py</span> — دالة <span class="en" lang="en" dir="ltr">transcribe_audio</span> تُعيد النص واللغة المكتشفة.</div>
+        <p class="model-desc">نموذج تعلم عميق أطلقته <span class="en" lang="en" dir="ltr">OpenAI</span> عام <span class="num">2022</span>، مُدرَّب على أكثر من <span class="num">680</span> ألف ساعة صوتية. يحوّل حلقات البودكاست الطبي والمحاضرات المسجلة إلى نصوص قابلة للترجمة.</p>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en" lang="en" dir="ltr">VoiceRecorder_Whisper.py</span> — تحويل المحتوى الصوتي الإعلامي الطبي عبر <span class="en" lang="en" dir="ltr">OpenAI API</span>.</div>
       </article>
 
       <article class="model-card">
@@ -1194,7 +1198,7 @@
         <div class="model-name-ar">نماذج الترجمة السياقية</div>
         <span class="model-tag" lang="en" dir="ltr">Generative AI</span>
         <p class="model-desc">بنية <span class="en" lang="en" dir="ltr">Transformer</span> من ورقة «Attention Is All You Need» (<span class="num">2017</span>) — أساس نماذج <span class="en" lang="en" dir="ltr">GPT-4</span> و<span class="en" lang="en" dir="ltr">Claude</span> و<span class="en" lang="en" dir="ltr">DeepSeek</span>. تفهم العلاقات بين الكلمات في الجملة كاملة، لا كلمة بكلمة.</p>
-        <div class="model-eg"><strong>مثال:</strong> عبارة «القلب يُفرز هرموناً» vs «القلب يُفرز دموعاً» — الـ <span class="en" lang="en" dir="ltr">LLMs</span> تفهم السياق وتترجم بدقة مصطلحية حقيقية.</div>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en" lang="en" dir="ltr">OpenAI_LLMs.py</span> — ترجمة المحتوى الطبي الإعلامي مع المحافظة على دقة المصطلحات العلمية بين العربية والإنجليزية.</div>
       </article>
 
       <article class="model-card">
@@ -1203,8 +1207,16 @@
         <div class="model-name-ar">نماذج توليد الكلام الطبيعي</div>
         <span class="model-tag" lang="en" dir="ltr">Generative AI · ElevenLabs</span>
         <p class="model-desc">نماذج الانتشار (<span class="en" lang="en" dir="ltr">Diffusion Models</span>) تُزيل الضوضاء تدريجياً حتى يتحول الإشارة إلى كلام واضح وطبيعي. <span class="en" lang="en" dir="ltr">ElevenLabs</span> يعتمد على هذه البنية لإنتاج أصوات تكاد بشرية.</p>
-        <div class="model-eg"><strong>تطبيق:</strong> <span class="en" lang="en" dir="ltr">ElevenLabs_TTS.py</span> — صوت <span class="en" lang="en" dir="ltr">eleven_multilingual_v2</span> يدعم العربية والإنجليزية ويُشغَّل فوراً للمريض.</div>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en" lang="en" dir="ltr">ElevenLabs_TTS.py</span> — دبلجة الفيديوهات الطبية والبودكاست الصحي بعدة لغات بصوت <span class="en" lang="en" dir="ltr">eleven_multilingual_v2</span>.</div>
       </article>
+
+      <article class="model-card">
+        <div class="model-num en" lang="en" dir="ltr">Model · 04</div>
+        <h3 class="model-name" lang="en" dir="ltr">GANs</h3>
+        <div class="model-name-ar">توليد البيانات الطبية الاصطناعية</div>
+        <span class="model-tag" lang="en" dir="ltr">Generative AI · Synthetic Data</span>
+        <p class="model-desc">شبكات توليدية تنافسية (<span class="en" lang="en" dir="ltr">GANs</span>) تُولّد بيانات طبية اصطناعية لحل مشكلة شُح البيانات النادرة — لهجات نادرة، مصطلحات تخصصية، حالات طبية غير ممثلة.</p>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en" lang="en" dir="ltr">SpeechSynthAug</span> (Edinburgh) — تحسين دقة ASR بنسبة <span class="num">18</span>٪. <span class="en" lang="en" dir="ltr">Veracuity</span> تُولّد محادثات طبية اصطناعية دون انتهاك خصوصية المرضى.</div>
     </div>
   </div>
 </section>
@@ -1214,7 +1226,7 @@
   <div class="container">
     <div class="section-eyebrow"><span class="ch num">4</span><span>حالات دراسية</span></div>
     <h2 class="section-title">ثلاث شركات حقيقية<br>تُطبّق التقنية اليوم</h2>
-    <p class="section-intro">استعرض البحث ثلاث حالات دراسية لشركات تطبّق الذكاء الاصطناعي في الترجمة الفورية الطبية والمهنية — من المؤتمرات الطبية إلى المستشفيات العالمية.</p>
+    <p class="section-intro">استعرض البحث ثلاث حالات دراسية لشركات تطبّق الذكاء الاصطناعي في ترجمة المحتوى الطبي الإعلامي — من المؤتمرات الطبية المبثوثة إلى المستشفيات العالمية.</p>
 
     <div class="company-row">
       <div class="company-rank num">01</div>
@@ -1222,7 +1234,7 @@
         <div class="company-name" lang="en" dir="ltr">Wordly AI</div>
         <div class="company-origin" lang="en" dir="ltr">USA · Medical Conferences</div>
       </div>
-      <p class="company-desc">شركة أمريكية متخصصة في الترجمة الفورية الآنية عبر الذكاء الاصطناعي للمؤتمرات والفعاليات الطبية. تعتمد على نماذج <span class="en" lang="en" dir="ltr">Transformer</span> مُدرَّبة على المحتوى المهني، وتدعم <strong>60 لغة</strong> بما فيها العربية.</p>
+      <p class="company-desc">شركة أمريكية متخصصة في الترجمة الفورية الآنية للمؤتمرات والفعاليات — تُستخدم بشكل متزايد في المؤتمرات الطبية والدورات التدريبية الصحية لتمكين الحضور متعددي اللغات من المتابعة الآنية.</p>
       <div class="company-stat">
         <div class="company-stat-num num">1M+</div>
         <div class="company-stat-label">دقيقة ترجمة شهرياً</div>
@@ -1262,7 +1274,7 @@
   <div class="container">
     <div class="section-eyebrow"><span class="ch num">5</span><span>الخط الزمني</span></div>
     <h2 class="section-title">تطور المجال<br>من <span class="num">2017</span> إلى <span class="num">2030</span></h2>
-    <p class="section-intro">مسار تطور الذكاء الاصطناعي في الترجمة الطبية — من ثورة <span class="en" lang="en" dir="ltr">Transformer</span> إلى أنظمة متعددة الوسائط ضمن رؤية المملكة <span class="num">2030</span>.</p>
+    <p class="section-intro">مسار تطور الذكاء الاصطناعي في ترجمة المحتوى الطبي الإعلامي — من ثورة <span class="en" lang="en" dir="ltr">Transformer</span> إلى البث المباشر والدبلجة التلقائية ضمن رؤية المملكة <span class="num">2030</span>.</p>
 
     <div class="timeline-wrap">
       <div class="timeline">
@@ -1315,8 +1327,8 @@
         <div class="tl-item left">
           <div class="tl-year future num">2030</div>
           <div class="tl-card" style="border: 2px dashed var(--rust); background: rgba(156, 67, 33, 0.03);">
-            <h4>رؤية 2030 · الصحة الرقمية</h4>
-            <p>أنظمة الترجمة الطبية الذكية أداة أساسية لتمكين الكوادر الصحية من خلفيات لغوية متنوعة — ضمن مشاريع الصحة الرقمية في المملكة.</p>
+            <h4>رؤية 2030 · الإعلام الصحي الرقمي</h4>
+            <p>البث المباشر للمؤتمرات الطبية، الترجمة الفورية للفيديوهات الصحية، والدبلجة التلقائية للمحتوى الطبي على منصات الإعلام الرقمي — لتمكين الجماهير متعددة اللغات.</p>
             <div class="tl-model" lang="en" dir="ltr" style="color: var(--rust);">Saudi Digital Health</div>
           </div>
         </div>
@@ -1330,8 +1342,8 @@
 <section id="challenges">
   <div class="container">
     <div class="section-eyebrow"><span class="ch num">6</span><span>التحديات والمخاطر</span></div>
-    <h2 class="section-title">ما لا يقوله الإعلام<br>عن الذكاء الاصطناعي الطبي</h2>
-    <p class="section-intro">لا يمكن مناقشة الذكاء الاصطناعي في الترجمة الطبية دون الصراحة التامة — فالخطأ هنا ليس مجرد سوء فهم، بل قد يكون له عواقب صحية مباشرة على المريض.</p>
+    <h2 class="section-title">ما لا يقوله الإعلام<br>عن الترجمة الآلية</h2>
+    <p class="section-intro">لا يمكن مناقشة الذكاء الاصطناعي في ترجمة المحتوى الطبي الإعلامي دون الصراحة — فالخطأ أمام الجمهور قد يكون له عواقب صحية مباشرة على ملايين المشاهدين.</p>
 
     <div class="challenges-grid">
       <div class="challenge">
@@ -1349,7 +1361,7 @@
       <div class="challenge">
         <div class="ch-num en" lang="en" dir="ltr">Challenge · 03</div>
         <h4>التحديات التنظيمية</h4>
-        <p>قانون <span class="en" lang="en" dir="ltr">HIPAA</span> الأمريكي و<span class="en" lang="en" dir="ltr">EU AI Act</span> (<span class="num">2024</span>) يفرضان متطلبات صارمة. في المملكة، <span class="en" lang="en" dir="ltr">SDAIA</span> تعمل على إطار تنظيمي للذكاء الاصطناعي في القطاع الصحي — فرصة لتصميم تشريعات حديثة.</p>
+        <p>قانون <span class="en" lang="en" dir="ltr">HIPAA</span> و<span class="en" lang="en" dir="ltr">EU AI Act</span> (<span class="num">2024</span>) — وأهمها: <strong>أخطاء ترجمة المصطلحات الطبية أمام الجمهور</strong>. في المملكة، <span class="en" lang="en" dir="ltr">SDAIA</span> تعمل على إطار تنظيمي للذكاء الاصطناعي في القطاع الصحي.</p>
       </div>
     </div>
   </div>
@@ -1360,7 +1372,7 @@
   <div class="container">
     <div class="section-eyebrow"><span class="ch num">7</span><span>المستقبل والخاتمة</span></div>
     <h2 class="section-title">ثلاثة تحوّلات قادمة<br>في خمس سنوات</h2>
-    <p class="section-intro">تتجه صناعة الترجمة الفورية الطبية نحو تحولات جوهرية بحلول <span class="num">2030</span> — أهمها توظيف هذه التقنيات في خدمة مشاريع الصحة الرقمية ضمن رؤية المملكة.</p>
+    <p class="section-intro">تتجه صناعة ترجمة المحتوى الطبي الإعلامي نحو تحولات جوهرية بحلول <span class="num">2030</span> — من البث المباشر للمؤتمرات إلى الدبلجة التلقائية على منصات الإعلام الرقمي.</p>
 
     <div class="future-grid">
       <div class="future-item">
@@ -1374,8 +1386,8 @@
       </div>
 
       <div class="future-item">
-        <h4>السعودية والصحة الرقمية</h4>
-        <p>مع استهداف رفع الطاقة السريرية واستقطاب الكفاءات الدولية، ستكون أنظمة الترجمة الطبية الذكية أداة أساسية لتمكين الكوادر من خلفيات لغوية متنوعة من تقديم رعاية متجانسة الجودة.</p>
+        <h4>السعودية والإعلام الصحي</h4>
+        <p>البث المباشر للمؤتمرات الطبية، الترجمة الفورية للفيديوهات الصحية، والدبلجة التلقائية — ضمن رؤية <span class="num">2030</span> لتمكين الجماهير متعددة اللغات من الوصول لمحتوى صحي دقيق.</p>
       </div>
     </div>
   </div>
@@ -1386,7 +1398,7 @@
   <div class="footer-inner">
     <div class="footer-about">
       <h5 lang="en" dir="ltr">About this research</h5>
-      <p>بحث طلابي في مقرر <span class="en" lang="en" dir="ltr">Advanced Deep Learning</span> يدرس تطبيقات الذكاء الاصطناعي التقليدي والتوليدي في صناعة الترجمة الفورية الطبية. يتضمن مشروعاً عملياً مبنياً على <span class="en" lang="en" dir="ltr">Whisper</span> و<span class="en" lang="en" dir="ltr">DeepSeek</span> و<span class="en" lang="en" dir="ltr">ElevenLabs</span>.</p>
+      <p>بحث طلابي في مقرر <span class="en" lang="en" dir="ltr">Advanced Deep Learning</span> — صناعة <strong>الإعلام والترفيه</strong>: الترجمة الآلية للمحتوى الطبي بين العربية والإنجليزية. يتضمن مشروعاً عملياً على <span class="en" lang="en" dir="ltr">Whisper</span> و<span class="en" lang="en" dir="ltr">DeepSeek</span> و<span class="en" lang="en" dir="ltr">ElevenLabs</span>. <a href="https://github.com/Mohammedamd12/Medical-Translation" style="color: var(--copper);">GitHub</a></p>
     </div>
 
     <div class="footer-col">
