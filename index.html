@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Language" content="ar">
 <meta http-equiv="content-language" content="ar">
 <meta name="language" content="Arabic">
+<meta name="dir" content="rtl">
+<meta property="og:locale" content="ar_SA">
 <link rel="canonical" href="https://mohammedamd12.github.io/Medical-Translation/">
 <title>الذكاء الاصطناعي في الإعلام والترفيه — الترجمة الآلية للمحتوى الطبي | محمد أحمد المفرجي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,9 +28,14 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html {
+  html, html.rtl, html[dir="rtl"] {
     scroll-behavior: smooth;
     direction: rtl;
+  }
+
+  main[lang="ar"][dir="rtl"] {
+    direction: rtl;
+    text-align: right;
   }
 
   body {
@@ -1002,7 +1010,8 @@
 </head>
 <body lang="ar" dir="rtl">
 
-<h1 class="sr-only">الذكاء الاصطناعي في صناعة الإعلام والترفيه — الترجمة الآلية للمحتوى الطبي بين العربية والإنجليزية</h1>
+<p class="sr-only" lang="ar" dir="rtl">صفحة بحثية باللغة العربية — اتجاه النص من اليمين إلى اليسار (RTL)</p>
+<main lang="ar" dir="rtl" id="main-content">
 
 <!-- HERO -->
 <header class="hero" lang="ar" dir="rtl">
@@ -1431,6 +1440,8 @@
     <span>29/05/2026 · تحت إشراف د. أحمد الهندي · <a href="https://mohammedamd12.github.io/Medical-Translation/" style="color: inherit;">GitHub Pages</a></span>
   </div>
 </footer>
+
+</main>
 
 <script>
   document.querySelectorAll('.nav-links a').forEach(link => {
