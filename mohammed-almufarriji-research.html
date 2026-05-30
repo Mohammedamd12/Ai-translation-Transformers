@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الذكاء الاصطناعي في الترجمة الفورية الطبية | محمد أحمد المفرجي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1B4D3E;
+    --ink-deep: #0F3328;
+    --paper: #FAF7F2;
+    --paper-warm: #F2EDE3;
+    --copper: #B08D57;
+    --copper-deep: #8B6B3D;
+    --rust: #9C4321;
+    --muted: #6B6863;
+    --line: rgba(27, 77, 62, 0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--paper);
+    color: var(--ink-deep);
+    font-size: 17px;
+    line-height: 1.85;
+    direction: rtl;
+    overflow-x: hidden;
+  }
+
+  .num, .yr { font-family: 'Playfair Display', serif; }
+  .en { font-family: 'Playfair Display', serif; font-style: italic; }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(176, 141, 87, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(27, 77, 62, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 32px 64px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-top .badge {
+    background: var(--rust);
+    color: var(--paper);
+    padding: 6px 14px;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-center {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 0;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Amiri', serif;
+    font-style: italic;
+    color: var(--copper-deep);
+    font-size: 22px;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero h1 {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 .accent {
+    color: var(--rust);
+    position: relative;
+  }
+
+  .hero h1 .accent::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+    left: 0;
+    height: 8px;
+    background: rgba(176, 141, 87, 0.25);
+    z-index: -1;
+  }
+
+  .hero-subtitle {
+    font-size: 22px;
+    color: var(--muted);
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .hero-supervisor {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    color: var(--copper-deep);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  .hero-meta {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .term {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    border-bottom: 1.5px dotted var(--copper);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+
+  .term:hover, .term:focus { color: var(--rust); outline: none; }
+
+  .term-tip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    right: 50%;
+    transform: translateX(50%) translateY(8px);
+    background: var(--ink-deep);
+    color: var(--paper);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    width: max-content;
+    max-width: 280px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 200;
+    box-shadow: 0 12px 32px rgba(15, 51, 40, 0.25);
+    letter-spacing: 0;
+  }
+
+  .term-tip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    border: 6px solid transparent;
+    border-top-color: var(--ink-deep);
+  }
+
+  .term-tip em {
+    color: var(--copper);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .term:hover .term-tip,
+  .term:focus .term-tip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(50%) translateY(0);
+  }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .stat { text-align: right; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .stat-num .unit {
+    font-size: 22px;
+    color: var(--copper-deep);
+    margin-right: 6px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 247, 242, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .nav-logo {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 15px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--rust);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--rust); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 0;
+    position: relative;
+  }
+
+  .section-eyebrow {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--copper-deep);
+    font-size: 18px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .section-eyebrow .ch {
+    font-family: 'Playfair Display', serif;
+    color: var(--rust);
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .section-intro {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 800px;
+    line-height: 1.8;
+    margin-bottom: 64px;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .pull-quote {
+    background: var(--paper-warm);
+    border-right: 4px solid var(--rust);
+    padding: 32px 36px;
+    margin: 24px 0;
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    line-height: 1.7;
+    color: var(--ink);
+    font-style: italic;
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: var(--copper);
+    opacity: 0.4;
+    line-height: 1;
+  }
+
+  .pull-quote cite {
+    display: block;
+    margin-top: 16px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .sub-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 32px 0 16px;
+  }
+
+  .body-text {
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  /* COMPARE TABLE */
+  .compare-table-wrap {
+    overflow-x: auto;
+    margin: 40px 0;
+    border: 1px solid var(--line);
+    background: var(--paper);
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+
+  .compare-table th,
+  .compare-table td {
+    padding: 18px 24px;
+    text-align: right;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .compare-table th {
+    background: var(--ink);
+    color: var(--paper);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: var(--paper-warm); }
+
+  /* MODELS */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .model-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 36px 32px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .model-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background: var(--ink);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+  }
+
+  .model-card:hover::before { width: 100%; }
+  .model-card:hover { color: var(--paper); border-color: var(--ink); }
+  .model-card:hover .model-num,
+  .model-card:hover .model-name,
+  .model-card:hover .model-desc,
+  .model-card:hover .model-eg { color: var(--paper); }
+  .model-card:hover .model-eg { border-color: rgba(250, 247, 242, 0.2); }
+  .model-card:hover .model-tag { background: var(--copper); color: var(--paper); }
+
+  .model-card > * { position: relative; z-index: 1; }
+
+  .model-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--copper-deep);
+    margin-bottom: 16px;
+    transition: color 0.3s;
+  }
+
+  .model-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.2;
+    transition: color 0.3s;
+  }
+
+  .model-name-ar {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+
+  .model-tag {
+    display: inline-block;
+    background: var(--paper-warm);
+    color: var(--ink);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+    transition: all 0.3s;
+  }
+
+  .model-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-deep);
+    margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+
+  .model-eg {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    transition: all 0.3s;
+  }
+
+  .model-eg strong { color: var(--rust); font-weight: 700; }
+
+  /* PIPELINE */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 48px 0;
+    padding: 40px;
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+  }
+
+  .pipeline-step {
+    text-align: center;
+    padding: 24px 28px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    min-width: 140px;
+  }
+
+  .pipeline-step .step-label {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .pipeline-step .step-desc {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .pipeline-arrow {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--copper);
+  }
+
+  /* COMPANIES */
+  .companies {
+    background: var(--paper-warm);
+    margin: 0 -32px;
+    padding: 100px 32px;
+  }
+
+  .companies .container { max-width: 1200px; }
+
+  .company-row {
+    display: grid;
+    grid-template-columns: 100px 200px 1fr 140px;
+    gap: 32px;
+    align-items: center;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.3s;
+  }
+
+  .company-row:hover { padding-right: 16px; }
+  .company-row:last-child { border-bottom: none; }
+
+  .company-rank {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--copper);
+    line-height: 1;
+    opacity: 0.6;
+  }
+
+  .company-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .company-origin {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .company-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-deep);
+  }
+
+  .company-desc strong { color: var(--rust); font-weight: 700; }
+
+  .company-stat {
+    text-align: left;
+    padding-right: 24px;
+    border-right: 2px solid var(--rust);
+  }
+
+  .company-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .company-stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* TIMELINE */
+  .timeline-wrap { position: relative; margin-top: 80px; }
+
+  .timeline {
+    position: relative;
+    padding: 20px 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    width: 2px;
+    background: var(--line);
+    transform: translateX(50%);
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 32px;
+    margin-bottom: 64px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s forwards;
+  }
+
+  .tl-item:nth-child(1) { animation-delay: 0.1s; }
+  .tl-item:nth-child(2) { animation-delay: 0.2s; }
+  .tl-item:nth-child(3) { animation-delay: 0.3s; }
+  .tl-item:nth-child(4) { animation-delay: 0.4s; }
+  .tl-item:nth-child(5) { animation-delay: 0.5s; }
+  .tl-item:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tl-year {
+    grid-column: 2;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 32px;
+    text-align: center;
+    color: var(--paper);
+    background: var(--ink);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    line-height: 1;
+  }
+
+  .tl-year.future {
+    background: var(--paper);
+    color: var(--rust);
+    border: 2px dashed var(--rust);
+  }
+
+  .tl-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 24px 28px;
+    position: relative;
+  }
+
+  .tl-item.right .tl-card { grid-column: 1; }
+  .tl-item.left .tl-card { grid-column: 3; }
+
+  .tl-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .tl-item.right .tl-card::after { right: -16px; }
+  .tl-item.left .tl-card::after { left: -16px; }
+
+  .tl-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .tl-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .tl-card .tl-model {
+    margin-top: 12px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--copper-deep);
+  }
+
+  /* CHALLENGES */
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .challenge {
+    border-top: 4px solid var(--rust);
+    padding-top: 20px;
+  }
+
+  .challenge .ch-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--copper-deep);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .challenge h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .challenge p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-deep);
+  }
+
+  /* FUTURE */
+  .future {
+    background: var(--ink);
+    color: var(--paper);
+    margin: 0 -32px;
+    padding: 120px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .future::before {
+    content: '2030';
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 480px;
+    line-height: 1;
+    color: rgba(250, 247, 242, 0.03);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .future .container { position: relative; z-index: 1; }
+
+  .future .section-eyebrow { color: var(--copper); }
+  .future .section-eyebrow .ch { color: var(--copper); }
+  .future .section-eyebrow::after { background: rgba(250, 247, 242, 0.15); }
+  .future .section-title { color: var(--paper); }
+  .future .section-intro { color: rgba(250, 247, 242, 0.7); }
+
+  .future-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .future-item {
+    border-top: 2px solid var(--copper);
+    padding-top: 24px;
+  }
+
+  .future-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin-bottom: 16px;
+    color: var(--paper);
+    line-height: 1.2;
+  }
+
+  .future-item p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.8);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink-deep);
+    color: var(--paper);
+    padding: 60px 32px 40px;
+    margin-top: 0;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+
+  .footer-about h5,
+  .footer-col h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--copper);
+  }
+
+  .footer-about p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.7);
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-col li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: rgba(250, 247, 242, 0.7);
+  }
+
+  .footer-col a {
+    color: rgba(250, 247, 242, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--copper); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(250, 247, 242, 0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(250, 247, 242, 0.5);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+  }
+
+  @media (max-width: 900px) {
+    .hero-bottom { grid-template-columns: repeat(2, 1fr); }
+    .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+    .models-grid { grid-template-columns: 1fr; }
+    .company-row { grid-template-columns: 60px 1fr; gap: 16px; }
+    .company-desc, .company-stat { grid-column: 1 / -1; }
+    .company-stat { border-right: none; padding-right: 0; text-align: right; }
+    .timeline::before { right: 32px; }
+    .tl-item { grid-template-columns: 64px 1fr; }
+    .tl-year { grid-column: 1; width: 64px; height: 64px; font-size: 22px; }
+    .tl-item.right .tl-card,
+    .tl-item.left .tl-card { grid-column: 2; }
+    .tl-item.right .tl-card::after,
+    .tl-item.left .tl-card::after { right: -16px; left: auto; }
+    .future-grid, .challenges-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .future::before { font-size: 240px; }
+    .pipeline { flex-direction: column; }
+    .pipeline-arrow { transform: rotate(90deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1 class="sr-only">الذكاء الاصطناعي في الترجمة الفورية الطبية — بحث في مقرر Advanced Deep Learning</h1>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-top container" style="padding: 0;">
+    <span>Advanced Deep Learning · S444001309</span>
+    <span class="badge">Research</span>
+  </div>
+
+  <div class="hero-center">
+    <div class="hero-eyebrow">A research study in</div>
+    <h1>الذكاء الاصطناعي<br>في <span class="accent">الترجمة الفورية الطبية</span></h1>
+    <p class="hero-subtitle">كيف تُحدث تقنيات <span class="en">ASR</span> و<span class="en">LLMs</span> و<span class="en">TTS</span> تحولاً جذرياً في التواصل بين المرضى والأطباء — من التعرف على الكلام إلى الترجمة السياقية وإعادة إنتاج الصوت الطبيعي</p>
+    <p class="hero-supervisor">محمد أحمد المفرجي · تحت إشراف د. أحمد الهندي</p>
+    <p class="hero-meta">التاريخ: <span class="num">29</span>/<span class="num">05</span>/<span class="num">2026</span></p>
+  </div>
+
+  <div class="hero-bottom container" style="padding: 0;">
+    <div class="stat">
+      <div class="stat-num"><span class="num">6</span><span class="unit">مليار $</span></div>
+      <div class="stat-label">حجم سوق الترجمة الطبية عالمياً</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span class="num">99</span><span class="unit">لغة</span></div>
+      <div class="stat-label">دعم لغوي في نموذج <span class="en">Whisper</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span class="num">90</span><span class="unit">٪</span></div>
+      <div class="stat-label">تقليل تكلفة الترجمة مع <span class="en">Wordly AI</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span class="num">500K</span><span class="unit">طبيب</span></div>
+      <div class="stat-label">يستخدمون <span class="en">Dragon Medical</span> عالمياً</div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">AI × Medical Translation</span>
+    <ul class="nav-links">
+      <li><a href="#intro">المقدمة</a></li>
+      <li><a href="#ai-types">التقليدي vs التوليدي</a></li>
+      <li><a href="#models">النماذج</a></li>
+      <li><a href="#companies">الشركات</a></li>
+      <li><a href="#timeline">الخط الزمني</a></li>
+      <li><a href="#challenges">التحديات</a></li>
+      <li><a href="#future">المستقبل</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">1</span><span>الملخص والمقدمة</span></div>
+    <h2 class="section-title">عندما يكون الخطأ<br>ليس مجرد سوء فهم</h2>
+    <p class="section-intro">تُعد صناعة الترجمة الفورية الطبية من أكثر القطاعات حساسية وتعقيداً في قطاع الخدمات الصحية والإعلام اللغوي، إذ تُمكّن المرضى والأطباء من التواصل رغم الحواجز اللغوية في مواقف قد تكون مصيرية.</p>
+
+    <div class="intro-grid">
+      <div>
+        <h3 class="sub-heading">الملخص التنفيذي</h3>
+        <p class="body-text">يستعرض هذا البحث كيف أحدث الذكاء الاصطناعي تحولاً جذرياً في هذه الصناعة عبر ثلاث تطبيقات رئيسية: التعرف التلقائي على الكلام باستخدام <span class="en">Whisper</span>، الترجمة العصبية الفورية عبر نماذج اللغة الكبيرة مثل <span class="en">GPT</span> و<span class="en">DeepSeek</span>، والتحويل النصي إلى كلام طبيعي باستخدام <span class="en">ElevenLabs</span>.</p>
+        <p class="body-text">توصل البحث إلى أن دمج هذه التقنيات في نظام واحد قادر على توفير تجربة ترجمة طبية لحظية عالية الجودة وبتكلفة أقل من الحلول التقليدية. كما ناقش التحديات التقنية والأخلاقية المرتبطة بالدقة والمسؤولية القانونية وحماية خصوصية المرضى.</p>
+
+        <h3 class="sub-heading">نبذة عن الصناعة</h3>
+        <p class="body-text">الترجمة الفورية الطبية (<span class="en">Medical Interpretation</span>) هي خدمة متخصصة تهدف إلى تسهيل التواصل بين المرضى ومقدمي الرعاية الصحية من خلال ترجمة المحادثات الطبية بشكل فوري ودقيق. من أبرز الشركات: <span class="en">Language Line Solutions</span> و<span class="en">Lionbridge</span> و<span class="en">TransPerfect</span>.</p>
+        <p class="body-text">أبرز التحديات التقليدية: نقص المترجمين المتخصصين، ارتفاع التكلفة، تأخر الاستجابة، وضعف الدقة المصطلحية في الحالات الطبية الحساسة.</p>
+      </div>
+
+      <div>
+        <blockquote class="pull-quote">
+          المريض الذي لا يستطيع شرح أعراضه للطبيب — بسبب حاجز لغوي لا عجز معرفي — يعاني من ظلم حقيقي قابل للحل تقنياً.
+          <cite>— من الخاتمة الشخصية للتقرير</cite>
+        </blockquote>
+
+        <h3 class="sub-heading">لماذا الذكاء الاصطناعي مهم؟</h3>
+        <p class="body-text">تكمن أهميته في وفرة البيانات الصوتية والنصية الطبية، والحاجة لقرارات وترجمات فورية خصوصاً في أقسام الطوارئ. عملية الترجمة الطبية تتكون من خطوات واضحة: تحويل الكلام إلى نص، ثم ترجمته، ثم إعادة إنتاجه صوتياً — مما يجعلها مناسبة جداً للأتمتة باستخدام نماذج التعلم العميق.</p>
+
+        <p class="body-text">اعتمد البحث على أوراق علمية من <span class="en">arXiv</span> و<span class="en">PubMed</span>، وتقارير صناعية من <span class="en">Grand View Research</span> و<span class="en">Slator</span>، مع التحقق من المصادر باستخدام <span class="en">ChatGPT</span> و<span class="en">Claude</span> و<span class="en">Perplexity</span>.</p>
+      </div>
+    </div>
+
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-label en">ASR</div>
+        <div class="step-desc">Whisper — كلام → نص</div>
+      </div>
+      <span class="pipeline-arrow">←</span>
+      <div class="pipeline-step">
+        <div class="step-label en">LLM</div>
+        <div class="step-desc">DeepSeek / GPT — ترجمة سياقية</div>
+      </div>
+      <span class="pipeline-arrow">←</span>
+      <div class="pipeline-step">
+        <div class="step-label en">TTS</div>
+        <div class="step-desc">ElevenLabs — نص → صوت طبيعي</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI TYPES -->
+<section id="ai-types" style="background: var(--paper-warm); margin: 0 -32px; padding: 100px 32px;">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">2</span><span>التقليدي مقابل التوليدي</span></div>
+    <h2 class="section-title">نوعان من الذكاء<br>في سلسلة واحدة</h2>
+    <p class="section-intro">الذكاء الاصطناعي التقليدي (<span class="en">Predictive AI</span>) يُصنّف ويتنبأ بناءً على بيانات موجودة، بينما الذكاء الاصطناعي التوليدي (<span class="en">Generative AI</span>) يُنشئ محتوى لم يكن موجوداً من قبل. في الترجمة الفورية الطبية، يؤدي كلا النوعين دوراً حيوياً ومتكاملاً.</p>
+
+    <div class="models-grid">
+      <article class="model-card">
+        <div class="model-num en">Type · 01</div>
+        <h3 class="model-name">Predictive AI</h3>
+        <div class="model-name-ar">الذكاء الاصطناعي التقليدي</div>
+        <span class="model-tag">Classification &amp; ASR</span>
+        <p class="model-desc">يهيمن على المهام التشغيلية الفورية: التعرف على الكلام الطبي، كشف اللغة تلقائياً، وتقييم جودة الترجمة بمقاييس مثل <span class="en">BLEU</span> و<span class="en">Meteor</span>.</p>
+        <div class="model-eg"><strong>أمثلة:</strong> <span class="en">Whisper</span>، <span class="en">BERT</span>، نماذج التصنيف</div>
+      </article>
+
+      <article class="model-card">
+        <div class="model-num en">Type · 02</div>
+        <h3 class="model-name">Generative AI</h3>
+        <div class="model-name-ar">الذكاء الاصطناعي التوليدي</div>
+        <span class="model-tag">Translation &amp; TTS</span>
+        <p class="model-desc">يُولّد ترجمات سياقية تراعي المعنى الكامل للجملة، ويُنتج كلاماً طبيعياً بلهجات متعددة، ويُنشئ ملخصات طبية متعددة اللغات عبر أنظمة <span class="en">RAG</span>.</p>
+        <div class="model-eg"><strong>أمثلة:</strong> <span class="en">GPT-4</span>، <span class="en">Claude</span>، <span class="en">ElevenLabs</span></div>
+      </article>
+
+      <article class="model-card">
+        <div class="model-num en">Integration</div>
+        <h3 class="model-name">Unified Pipeline</h3>
+        <div class="model-name-ar">النظام المتكامل</div>
+        <span class="model-tag">Real-time System</span>
+        <p class="model-desc">المشروع العملي المُرفق يُجسّد سلسلة <span class="en">ASR → LLM → TTS</span> العاملة في الوقت الفعلي — يثبت أن هذه التقنيات أصبحت في متناول المطورين الأفراد.</p>
+        <div class="model-eg"><strong>ملفات:</strong> <span class="en">VoiceRecorder_Whisper.py</span>، <span class="en">OpenAI_LLMs.py</span>، <span class="en">ElevenLabs_TTS.py</span></div>
+      </article>
+    </div>
+
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>وجه المقارنة</th>
+            <th>Predictive AI</th>
+            <th>Generative AI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>الهدف الأساسي</strong></td>
+            <td>تصنيف الكلام وتنبؤ بالنص الصحيح</td>
+            <td>توليد ترجمة أو كلام جديد لم يكن موجوداً</td>
+          </tr>
+          <tr>
+            <td><strong>أمثلة على المهام</strong></td>
+            <td>التعرف على الكلام، كشف اللغة، تقييم الجودة</td>
+            <td>الترجمة السياقية، توليد الكلام الطبيعي، ملخصات متعددة اللغات</td>
+          </tr>
+          <tr>
+            <td><strong>النماذج المستخدمة</strong></td>
+            <td><span class="en">Whisper, BERT, Classification CNNs</span></td>
+            <td><span class="en">GPT-4, Claude, ElevenLabs TTS</span></td>
+          </tr>
+          <tr>
+            <td><strong>أبرز الشركات</strong></td>
+            <td><span class="en">3M Health, Nuance (Microsoft), Suki AI</span></td>
+            <td><span class="en">Wordly, Boostlingo AI, OpenAI Health</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section id="models">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">3</span><span>نماذج التعلم العميق</span></div>
+    <h2 class="section-title">ثلاثة نماذج<br>في سلسلة العمل</h2>
+    <p class="section-intro">اختار هذا القسم ثلاثة نماذج تمثل العمود الفقري التقني لأنظمة الترجمة الفورية الطبية الحديثة، كل نموذج يعالج مرحلة مختلفة في سلسلة العمل.</p>
+
+    <div class="models-grid">
+      <article class="model-card">
+        <div class="model-num en">Model · 01</div>
+        <h3 class="model-name">Whisper</h3>
+        <div class="model-name-ar">نموذج التعرف على الكلام</div>
+        <span class="model-tag">Predictive AI · ASR</span>
+        <p class="model-desc">نموذج تعلم عميق أطلقته <span class="en">OpenAI</span> عام <span class="num">2022</span>، مُدرَّب على أكثر من <span class="num">680</span> ألف ساعة من البيانات الصوتية متعددة اللغات. يعتمد على بنية <span class="en">Transformer encoder-decoder</span> لتحويل الكلام المسجل إلى نص مكتوب.</p>
+        <div class="model-eg"><strong>تطبيق:</strong> تحويل كلام المريض عبر <span class="en">OpenAI API</span> في <span class="en">VoiceRecorder_Whisper.py</span> — دالة <span class="en">transcribe_audio</span> تُعيد النص واللغة المكتشفة.</div>
+      </article>
+
+      <article class="model-card">
+        <div class="model-num en">Model · 02</div>
+        <h3 class="model-name">Transformer / LLMs</h3>
+        <div class="model-name-ar">نماذج الترجمة السياقية</div>
+        <span class="model-tag">Generative AI</span>
+        <p class="model-desc">بنية <span class="en">Transformer</span> من ورقة «Attention Is All You Need» (<span class="num">2017</span>) — أساس نماذج <span class="en">GPT-4</span> و<span class="en">Claude</span> و<span class="en">DeepSeek</span>. تفهم العلاقات بين الكلمات في الجملة كاملة، لا كلمة بكلمة.</p>
+        <div class="model-eg"><strong>مثال:</strong> عبارة «القلب يُفرز هرموناً» vs «القلب يُفرز دموعاً» — الـ <span class="en">LLMs</span> تفهم السياق وتترجم بدقة مصطلحية حقيقية.</div>
+      </article>
+
+      <article class="model-card">
+        <div class="model-num en">Model · 03</div>
+        <h3 class="model-name">Diffusion TTS</h3>
+        <div class="model-name-ar">نماذج توليد الكلام الطبيعي</div>
+        <span class="model-tag">Generative AI · ElevenLabs</span>
+        <p class="model-desc">نماذج الانتشار (<span class="en">Diffusion Models</span>) تُزيل الضوضاء تدريجياً حتى يتحول الإشارة إلى كلام واضح وطبيعي. <span class="en">ElevenLabs</span> يعتمد على هذه البنية لإنتاج أصوات تكاد بشرية.</p>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en">ElevenLabs_TTS.py</span> — صوت <span class="en">eleven_multilingual_v2</span> يدعم العربية والإنجليزية ويُشغَّل فوراً للمريض.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANIES -->
+<section id="companies" class="companies">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">4</span><span>حالات دراسية</span></div>
+    <h2 class="section-title">ثلاث شركات حقيقية<br>تُطبّق التقنية اليوم</h2>
+    <p class="section-intro">استعرض البحث ثلاث حالات دراسية لشركات تطبّق الذكاء الاصطناعي في الترجمة الفورية الطبية والمهنية — من المؤتمرات الطبية إلى المستشفيات العالمية.</p>
+
+    <div class="company-row">
+      <div class="company-rank num">01</div>
+      <div>
+        <div class="company-name">Wordly AI</div>
+        <div class="company-origin">USA · Medical Conferences</div>
+      </div>
+      <p class="company-desc">شركة أمريكية متخصصة في الترجمة الفورية الآنية عبر الذكاء الاصطناعي للمؤتمرات والفعاليات الطبية. تعتمد على نماذج <span class="en">Transformer</span> مُدرَّبة على المحتوى المهني، وتدعم <strong>60 لغة</strong> بما فيها العربية.</p>
+      <div class="company-stat">
+        <div class="company-stat-num num">1M+</div>
+        <div class="company-stat-label">دقيقة ترجمة شهرياً</div>
+      </div>
+    </div>
+
+    <div class="company-row">
+      <div class="company-rank num">02</div>
+      <div>
+        <div class="company-name">Nuance</div>
+        <div class="company-origin">Microsoft · Dragon Medical</div>
+      </div>
+      <p class="company-desc">منصة التعرف على الكلام الطبي الأوسع انتشاراً في المستشفيات. تُحوّل ملاحظات الأطباء الصوتية إلى وثائق سريرية منظمة وفق معايير <span class="en">HL7</span> و<span class="en">FHIR</span>.</p>
+      <div class="company-stat">
+        <div class="company-stat-num num">50%</div>
+        <div class="company-stat-label">تقليل وقت التوثيق</div>
+      </div>
+    </div>
+
+    <div class="company-row">
+      <div class="company-rank num">03</div>
+      <div>
+        <div class="company-name">Boostlingo AI</div>
+        <div class="company-origin">USA · Remote Medical Translation</div>
+      </div>
+      <p class="company-desc">منصة متكاملة لإدارة خدمات التفسير والترجمة الطبية عن بُعد. تدمج بين نماذج تصنيف و<span class="en">LLMs</span> للترجمة الآلية الاحتياطية عند عدم توافر مترجم بشري.</p>
+      <div class="company-stat">
+        <div class="company-stat-num num">30s</div>
+        <div class="company-stat-label">انتظار بدلاً من 8 دقائق</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">5</span><span>الخط الزمني</span></div>
+    <h2 class="section-title">تطور المجال<br>من <span class="num">2017</span> إلى <span class="num">2030</span></h2>
+    <p class="section-intro">مسار تطور الذكاء الاصطناعي في الترجمة الطبية — من ثورة <span class="en">Transformer</span> إلى أنظمة متعددة الوسائط ضمن رؤية المملكة <span class="num">2030</span>.</p>
+
+    <div class="timeline-wrap">
+      <div class="timeline">
+
+        <div class="tl-item right">
+          <div class="tl-card">
+            <h4>Attention Is All You Need</h4>
+            <p>نشر ورقة <span class="en">Vaswani et al.</span> — أساس كل نماذج اللغة الكبيرة الحديثة.</p>
+            <div class="tl-model en">Model: Transformer</div>
+          </div>
+          <div class="tl-year num">2017</div>
+        </div>
+
+        <div class="tl-item left">
+          <div class="tl-year num">2022</div>
+          <div class="tl-card">
+            <h4>Whisper Launch</h4>
+            <p>إطلاق <span class="en">OpenAI Whisper</span> — دعم <span class="num">99</span> لغة وتمييز المصطلحات الطبية بدقة عالية.</p>
+            <div class="tl-model en">Model: Whisper ASR</div>
+          </div>
+        </div>
+
+        <div class="tl-item right">
+          <div class="tl-card">
+            <h4>LLMs in Healthcare</h4>
+            <p>انتشار <span class="en">GPT-4</span> و<span class="en">Claude</span> في الترجمة السياقية الطبية — تجاوز الترجمة الحرفية.</p>
+            <div class="tl-model en">Models: GPT-4, Claude</div>
+          </div>
+          <div class="tl-year num">2023</div>
+        </div>
+
+        <div class="tl-item left">
+          <div class="tl-year num">2024</div>
+          <div class="tl-card">
+            <h4>EU AI Act &amp; NEJM AI</h4>
+            <p>تطبيق <span class="en">EU AI Act</span> — تصنيف الأنظمة الطبية كـ <span class="en">High-Risk AI</span>. تقرير <span class="en">NEJM AI</span> يتنبأ بنماذج متخصصة تتفوق على العامة بحلول <span class="num">2027</span>.</p>
+            <div class="tl-model en">Regulation milestone</div>
+          </div>
+        </div>
+
+        <div class="tl-item right">
+          <div class="tl-card">
+            <h4>Multimodal Translation</h4>
+            <p>نماذج <span class="en">GPT-4V</span> و<span class="en">Gemini</span> تقرأ تعابير الوجه والإشارات غير اللفظية — ترجمة متعددة الوسائط.</p>
+            <div class="tl-model en">Multimodal AI</div>
+          </div>
+          <div class="tl-year num">2025</div>
+        </div>
+
+        <div class="tl-item left">
+          <div class="tl-year future num">2030</div>
+          <div class="tl-card" style="border: 2px dashed var(--rust); background: rgba(156, 67, 33, 0.03);">
+            <h4>رؤية 2030 · الصحة الرقمية</h4>
+            <p>أنظمة الترجمة الطبية الذكية أداة أساسية لتمكين الكوادر الصحية من خلفيات لغوية متنوعة — ضمن مشاريع الصحة الرقمية في المملكة.</p>
+            <div class="tl-model" style="color: var(--rust);">Saudi Digital Health</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGES -->
+<section id="challenges">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">6</span><span>التحديات والمخاطر</span></div>
+    <h2 class="section-title">ما لا يقوله الإعلام<br>عن الذكاء الاصطناعي الطبي</h2>
+    <p class="section-intro">لا يمكن مناقشة الذكاء الاصطناعي في الترجمة الطبية دون الصراحة التامة — فالخطأ هنا ليس مجرد سوء فهم، بل قد يكون له عواقب صحية مباشرة على المريض.</p>
+
+    <div class="challenges-grid">
+      <div class="challenge">
+        <div class="ch-num en">Challenge · 01</div>
+        <h4>التحديات التقنية</h4>
+        <p>دقة المصطلحات التخصصية — كلمة «<span class="en">Discharge</span>» تعني الخروج أو الإفراز حسب السياق. انخفاض دقة <span class="en">Whisper</span> مع اللهجات العربية المحلية. في الطوارئ، حتى تأخير <span class="num">2</span>-<span class="num">3</span> ثوانٍ قد يُعيق التواصل الحرج.</p>
+      </div>
+
+      <div class="challenge">
+        <div class="ch-num en">Challenge · 02</div>
+        <h4>التحديات الأخلاقية</h4>
+        <p>المسؤولية القانونية عند خطأ في ترجمة جرعة دواء — من يتحمل؟ خصوصية <span class="en">PHI</span> عند معالجة المحادثات على خوادم خارجية. مهنة الترجمة الطبية البشرية (~<span class="num">50,000</span> مترجم في أمريكا) مهددة بالتقلص.</p>
+      </div>
+
+      <div class="challenge">
+        <div class="ch-num en">Challenge · 03</div>
+        <h4>التحديات التنظيمية</h4>
+        <p>قانون <span class="en">HIPAA</span> الأمريكي و<span class="en">EU AI Act</span> (<span class="num">2024</span>) يفرضان متطلبات صارمة. في المملكة، <span class="en">SDAIA</span> تعمل على إطار تنظيمي للذكاء الاصطناعي في القطاع الصحي — فرصة لتصميم تشريعات حديثة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUTURE -->
+<section id="future" class="future">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">7</span><span>المستقبل والخاتمة</span></div>
+    <h2 class="section-title">ثلاثة تحوّلات قادمة<br>في خمس سنوات</h2>
+    <p class="section-intro">تتجه صناعة الترجمة الفورية الطبية نحو تحولات جوهرية بحلول <span class="num">2030</span> — أهمها توظيف هذه التقنيات في خدمة مشاريع الصحة الرقمية ضمن رؤية المملكة.</p>
+
+    <div class="future-grid">
+      <div class="future-item">
+        <h4>Multimodal Translation</h4>
+        <p>الانتقال من الترجمة النصية إلى متعددة الوسائط — قراءة تعابير الوجه والإشارات غير اللفظية كالألم والقلق. تجربة <span class="en">GPT-4V</span> و<span class="en">Gemini</span> تُنبئ بهذا التحول.</p>
+      </div>
+
+      <div class="future-item">
+        <h4>Specialized Medical LLMs</h4>
+        <p>نماذج مُدرَّبة على أورام الأطفال، أمراض القلب، الصحة النفسية — حيث يختلف الإطار المصطلحي جذرياً. <span class="en">NEJM AI</span> يتنبأ بتفوقها على النماذج العامة بحلول <span class="num">2027</span>.</p>
+      </div>
+
+      <div class="future-item">
+        <h4>السعودية والصحة الرقمية</h4>
+        <p>مع استهداف رفع الطاقة السريرية واستقطاب الكفاءات الدولية، ستكون أنظمة الترجمة الطبية الذكية أداة أساسية لتمكين الكوادر من خلفيات لغوية متنوعة من تقديم رعاية متجانسة الجودة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-about">
+      <h5>About this research</h5>
+      <p>بحث طلابي في مقرر <span class="en">Advanced Deep Learning</span> يدرس تطبيقات الذكاء الاصطناعي التقليدي والتوليدي في صناعة الترجمة الفورية الطبية. يتضمن مشروعاً عملياً مبنياً على <span class="en">Whisper</span> و<span class="en">DeepSeek</span> و<span class="en">ElevenLabs</span>.</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>References</h5>
+      <ul>
+        <li>Radford et al. (2022) — Whisper</li>
+        <li>Vaswani et al. (2017) — Attention</li>
+        <li>Grand View Research (2024)</li>
+        <li>Slator AI Translation Report (2024)</li>
+        <li>NEJM AI Report (2024)</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Companies cited</h5>
+      <ul>
+        <li><a href="https://wordly.ai">Wordly AI — wordly.ai</a></li>
+        <li><a href="https://www.nuance.com/healthcare">Nuance — nuance.com</a></li>
+        <li><a href="https://boostlingo.com">Boostlingo — boostlingo.com</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>محمد أحمد المفرجي · <span class="en">S444001309 · Advanced Deep Learning</span></span>
+    <span class="en">29/05/2026 · Under supervision of Dr. Ahmed Al-Hindi</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const offset = target.offsetTop - 80;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
